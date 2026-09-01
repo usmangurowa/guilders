@@ -1,178 +1,65 @@
----
-name: Guilders Limited
-description: The company's own stamped Nigerian trade paperwork, rendered as a website
-colors:
-  desk: "#e6dfca"
-  paper: "#faf7ec"
-  paper-2: "#f1ebd8"
-  copy-pink: "#f7e9e6"
-  copy-gold: "#f4ead0"
-  ink: "#221f16"
-  ink-soft: "#5a5648"
-  form-blue: "#274690"
-  rule-blue: "#b6bfd8"
-  stamp-red: "#b02e20"
-typography:
-  display:
-    fontFamily: "Courier Prime, Courier New, monospace"
-    fontSize: "clamp(1.875rem, 4vw, 3rem)"
-    fontWeight: 700
-    lineHeight: 1.1
-    letterSpacing: "0.06em"
-  headline:
-    fontFamily: "Courier Prime, Courier New, monospace"
-    fontSize: "1.25rem"
-    fontWeight: 700
-    lineHeight: 1.3
-    letterSpacing: "0.04em"
-  body:
-    fontFamily: "Courier Prime, Courier New, monospace"
-    fontSize: "0.875rem"
-    fontWeight: 400
-    lineHeight: 2
-  label:
-    fontFamily: "Libre Franklin, Franklin Gothic Medium, Arial, sans-serif"
-    fontSize: "0.6875rem"
-    fontWeight: 700
-    letterSpacing: "0.18em"
-  script:
-    fontFamily: "Homemade Apple, cursive"
-    fontSize: "1.5rem"
-    fontWeight: 400
-rounded:
-  none: "0px"
-  stamp: "6px"
-spacing:
-  ruling: "2rem"
-  section: "4rem"
-components:
-  button-stamp:
-    backgroundColor: "transparent"
-    textColor: "{colors.stamp-red}"
-    rounded: "{rounded.stamp}"
-    padding: "0.8rem 1.6rem"
-  button-stamp-hover:
-    backgroundColor: "{colors.stamp-red}"
-    textColor: "{colors.paper}"
-  link-typed:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
-  tab-active:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-  tab-inactive:
-    backgroundColor: "{colors.paper-2}"
-    textColor: "{colors.ink-soft}"
----
+# Design System: Guilders Limited — "The Platform Standard"
 
-# Design System: Guilders Limited
+**The one-liner:** The visual language of Africa's best platform companies — white canvas, one confident green, huge tight headlines, and product-real UI cards that show the work instead of describing it.
 
-## Overview
+This site speaks the dialect of Paystack, Mono and their peers: calm, modern, evidence-first. Guilders is a diversified operating company, not a fintech — so where those companies show dashboards, we show operations: consignments in transit, deploys going live, invoices settled, leases renewed. Every visual is an operational artifact.
 
-**Creative North Star: "The Operations Manifest"**
+## Mode
 
-The entire site is Guilders Limited's own stamped trade paperwork. Every page is a numbered form sheet (GL-01 through GL-06, GL-99 for errors) resting on a desk surface: letterhead at the top, printed-form chrome in blue, entries typed in Courier, a red rubber stamp for registration, and an authorised signature at the foot. A young Nigerian trading company earns trust by showing its papers, not by imitating fintech gradients — so nothing here is decoration; every element is something a real waybill, registry extract, or continuation sheet would carry.
+**Persuade** (all public pages). Legal pages (privacy, terms) run in **Read** mode: quiet prose shells, max-width ~65ch equivalents, no decoration.
 
-The voice is factual and registry-flavoured. Density is document-density: ruled paragraphs, tabular consignment lines, letterspaced form labels. Rejected outright: gradient heroes, icon-card grids, glassmorphism, dark "premium" themes, stock photography.
+## Color
 
-**Key Characteristics:**
-- Every page is a numbered paper form on a desk, never a "web page"
-- Two inks on paper: form-blue for printed chrome, typed ink for content; stamp-red is scarce
-- Real paper material: subtle grain on desk and sheets, broken ink on the stamp
-- File-folder tab navigation; legal pages are pink/gold carbon copies
-- All facts verifiable (RC number, dates, address); no invented claims
+One accent. Green is the only voice of emphasis — never introduce a second accent.
 
-## Colors
+| Token | Value | Role |
+|---|---|---|
+| `white` | `#ffffff` | Primary canvas |
+| `ink` | `#0a1f18` | Headlines, primary text (green-tinted near-black) |
+| `body` | `#4a5a52` | Body text on white (≈7:1) |
+| `soft` | `#66756d` | Captions, labels, metadata |
+| `green` | `#0b6e43` | THE accent: CTAs, links, section labels (≈5:1 on white) |
+| `green-deep` | `#095c38` | Hover state of green |
+| `green-bright` | `#17b26a` | Accent on dark surfaces only |
+| `mint` | `#eef6f1` | Tinted section background, card chrome |
+| `mint-deep` | `#ddefe6` | Status chips, check circles |
+| `dark` | `#071b14` | Dark bands: CTA section, footer |
+| `dark-2` | `#0b2f22` | Hover surface on dark |
+| `line` | `#e5ece8` | Hairline borders on white |
+| `line-dark` | `#1c3a2e` | Hairline borders on dark |
 
-A paper-and-two-inks palette: warm paper neutrals, one printed-form blue, one rubber-stamp red.
-
-### Primary
-- **Form Blue** (#274690): the printed chrome of every form — labels, table headers, rules, microprint, tab numbers, link underlines. This is the color the "printer" used.
-- **Stamp Red** (#b02e20): the rubber stamp and the single CTA only. Its scarcity is what makes the stamp feel official.
-
-### Neutral
-- **Desk** (#e6dfca): the page background the sheets rest on.
-- **Paper** (#faf7ec): the primary sheet.
-- **Paper 2** (#f1ebd8): inactive folder tabs and secondary surfaces.
-- **Carbon Pink** (#f7e9e6): privacy policy sheet (pink copy — data protection file).
-- **Carbon Gold** (#f4ead0): terms sheet (gold copy — conditions file).
-- **Ink** (#221f16): typed content.
-- **Ink Soft** (#5a5648): secondary typed content, blank-line strokes.
-- **Rule Blue** (#b6bfd8): the faint ledger ruling behind ruled paragraphs.
-
-### Named Rules
-**The Two-Inks Rule.** Content is typed in ink; chrome is printed in form-blue; stamp-red appears only as the REGISTERED stamp and the single stamp-box CTA per page. No other hues exist.
-
-**The Carbon-Copy Rule.** Legal pages are not styled differently — they are the same form on pink or gold carbon paper.
+Dark-surface text is tinted from the green hue, never gray: `#d3e4db` (strong), `#a9c4b8` (secondary), `#7f9c8f` (muted). Illustrative card details may use `#f2b8b5`, `#f4d9a6`, `#b9e2cd` (traffic dots) and `#b7cec2` (pending route stroke).
 
 ## Typography
 
-**Display Font:** Courier Prime (with Courier New) — the company "typed" its own headings
-**Body Font:** Courier Prime (with Courier New)
-**Label Font:** Libre Franklin (with Franklin Gothic Medium, Arial) — the printed form voice
-**Script Font:** Homemade Apple — the authorised signature only
+| Style | Font | Size | Usage |
+|---|---|---|---|
+| Display hero | Inter Tight 600, -0.035em | `clamp(2.625rem, 6.4vw, 4.75rem)` | H1 home only |
+| Display section | Inter Tight 600, -0.03em | `clamp(2rem, 4vw, 3rem)` | Page H1s, band headings |
+| Display sub | Inter Tight 600, -0.02em | `clamp(1.5rem, 2.6vw, 2rem)` | Section/division headings |
+| Card heading | Inter Tight 600, tight | 1.125–1.25rem (`text-lg`/`text-xl`), `text-2xl`/`1.75rem` for stats | Cards, stats |
+| Body | Inter 400 | 1rem–1.25rem / relaxed leading | Paragraphs |
+| Small/UI | Inter 500–600 | 0.8125rem (`13px` code), 0.875rem, `15px` checklist | Labels, chips, card copy |
+| Code | ui-monospace stack | 13px/1.5 | Terminal card only |
 
-**Character:** A typewriter did the content; a printing press did the chrome; a person signed it. The tension between the three is the identity.
+Section labels are small green semibold sentences ("Company", "Technology") — the Mono signature. Never uppercase-tracked eyebrows.
 
-### Hierarchy
-- **Display** (700, clamp(1.875rem–3rem), lh 1.1, tracking 0.06em, uppercase): page titles and the letterhead company name.
-- **Headline** (700, 1.25rem, uppercase, underlined): section and line-item headings.
-- **Body** (400, 0.875rem, lh 2rem on ruled paper): typed paragraphs; max width 70ch.
-- **Label** (Franklin 700, 0.6875rem, tracking 0.18em, uppercase, form-blue): printed form labels — LINE, DESCRIPTION OF BUSINESS, MEMO CLAUSE, STATUS.
-- **Script** (1.5rem, form-blue): the director's signature, nothing else.
+## Signature elements
 
-### Named Rules
-**The Ruling Rule.** Ruled paragraphs sit exactly on the 2rem ledger ruling: `line-height: 2rem`, no margins between ruled lines.
+1. **UI cards (`card-ui`)**: white, 16px radius, `line` border, layered shadow with offset+blur. Content is always a plausible operational artifact — tracking, terminal, order, lease, portfolio. Never nested cards.
+2. **Dot grid (`dot-grid`)**: radial-dot backdrop behind hero cards only.
+3. **Alternating division sections**: label → heading → summary → 3 checks → "More about X →", visual on the other column, flip each row.
+4. **Dark bands**: closing CTA + footer on `dark` with white btn-on-dark.
+5. **Facts strip**: honest registration numbers (RC 9819868, 2026, Makurdi, Five) in place of the category's vanity metrics. Never invent metrics, customers or logos.
 
-## Layout
+## Motion
 
-A single centered sheet per page, max-width ~72rem, with the desk visible around it. Folder tabs sit flush on the sheet's top edge; the active tab fuses into the sheet. Inside the sheet: letterhead → form number → content sections separated by 4rem rhythm → enquiries strip → signature footer → distribution line → microprint edge. Mobile keeps the same document; tabs scroll horizontally, tables collapse the memo-clause column, the stamp moves from overlapping-absolute to in-flow. Body copy never exceeds 70ch.
+One authored moment: `card-rise` — hero cards rise 14px and fade in, 0.55s cubic-bezier(0.16,1,0.3,1), staggered 80/220ms. Everything else is 150ms color/border transitions. Full `prefers-reduced-motion` opt-out.
 
-## Elevation & Depth
+## Voice
 
-No shadow vocabulary beyond the one physical fact: the sheet rests on the desk (`0 1px 2px` + `0 12px 32px -12px` ink-tinted). Nothing else lifts. Depth inside the sheet is conveyed by paper tint (paper-2, carbon tints) and rules, never shadows.
+Plain, confident, benefit-led. Short declaratives ("Five divisions. One standard of delivery."). No hype adjectives, no invented numbers. British-Nigerian spelling (organisation, ₦).
 
-**The One-Sheet Rule.** Only the sheet casts a shadow. Elements on the paper are printed or stamped flat.
+## Bans
 
-## Shapes
-
-Radius 0 everywhere — paper has corners. The two exceptions are physical: the rubber stamp and stamp-box CTA (6px, because rubber stamps are rounded) and the stamp's inner border (4px). Borders are 1px ink-tinted for the sheet, 2–3px stamp-red for stamps, 1px form-blue/rule-blue for table chrome. The recurring silhouette is the rotated stamp (-8deg) breaking table geometry.
-
-## Components
-
-### Buttons
-- **Shape:** stamp-box — 2.5px stamp-red border, 6px radius, rotated -0.75deg
-- **Primary (.stampbtn):** transparent bg, stamp-red Franklin 800 letterspaced text, 0.8rem × 1.6rem padding
-- **Hover / Focus:** fills stamp-red with paper text; focus uses the global 2px form-blue outline
-- **There is no secondary button.** Secondary actions are typed links.
-
-### Links (.typedlink)
-- **Style:** typed text underlined in form-blue (1.5px, 4px offset)
-- **Hover:** faint form-blue wash (rgba(39,70,144,0.1))
-
-### Tables (consignment/manifest)
-- **Chrome:** form-blue letterspaced Franklin header labels, 2px ink top rule, 1px rule-blue row rules
-- **Entries:** Courier; line numbers 01–05 bold
-
-### Navigation (folder tabs)
-- **Style:** Franklin caps labels + form-blue form numbers on paper-2 tabs; active tab is paper with no bottom border, fusing into the sheet; `aria-current="page"`; horizontal scroll on mobile
-
-### The Stamp (signature component)
-- CSS double-border rubber stamp: 3px + 1px stamp-red borders, rotated -8deg, `mix-blend-mode: multiply`, opacity 0.93, ink voids via white-speckle noise overlay (.stampink). Lands once per page at most, overlapping content like a real stamp. Motion: one 0.34s stamp-in scale (1.55→1) with 0.4s delay, disabled under reduced-motion.
-
-### Form Sheet (FormSheet)
-- Letterhead (company name, address, contact), № GL-XX form number top-right, FormFooter (signature, RC line, distribution note, pink/gold copy links), microprint edge strip.
-
-## Do's and Don'ts
-
-### Do:
-- **Do** render every new page as a numbered form sheet with letterhead, footer, and microprint — extend the GL-XX series.
-- **Do** keep body copy on the 2rem ruling at ≤70ch and labels in Franklin 700 / 0.18em tracking / form-blue.
-- **Do** apply the shared grain (`--grain`) to any new paper surface.
-- **Do** keep stamp-red scarce: one stamp and/or one CTA per page.
-
-### Don't:
-- **Don't** add gradients, glass, icon cards, hero imagery, or drop shadows inside the paper.
-- **Don't** introduce new hues, rounded corners (beyond the stamp's 6px), or a second button style.
-- **Don't** invent claims, metrics, or testimonials — every fact must be verifiable against the company record.
-- **Don't** animate anything except the stamp landing.
+No second accent, no gradient text, no zero-offset halo shadows, no uppercase-tracked eyebrows, no section numbering, no fake logos/metrics/testimonials, no serif or handwriting fonts, no nested cards, no gray text on colored surfaces.

@@ -1,27 +1,24 @@
 import Link from "next/link";
-import { FormSheet } from "@/components/sheet";
 
 export default function NotFound() {
   return (
-    <FormSheet formNo="GL-99" formTitle="Missing Document">
-      <section className="pt-8">
-        <h1 className="max-w-[24ch] font-form text-3xl font-black uppercase tracking-[0.02em] text-ink sm:text-4xl">
-          Document not on file
-        </h1>
-        <div className="ruled mt-6 max-w-[70ch]">
-          <p className="font-typed text-sm text-ink">
-            The page requested does not appear in the company file.
-          </p>
-          <p className="font-typed text-sm text-ink">
-            It may have been re-numbered, withdrawn, or never lodged.
-          </p>
-        </div>
-        <div className="mt-10">
-          <Link href="/" className="stampbtn">
-            Return to the manifest
-          </Link>
-        </div>
-      </section>
-    </FormSheet>
+    <section className="container-site flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">
+      <p className="text-sm font-semibold text-green">404</p>
+      <h1 className="display-sub mt-3 text-ink">
+        This page doesn&apos;t exist
+      </h1>
+      <p className="mt-4 max-w-md leading-7 text-body">
+        The address may be mistyped, or the page may have moved. Everything we
+        do is reachable from the home page.
+      </p>
+      <div className="mt-8 flex gap-4">
+        <Link href="/" className="btn-primary">
+          Back to home
+        </Link>
+        <Link href="/contact/" className="btn-secondary">
+          Contact us
+        </Link>
+      </div>
+    </section>
   );
 }

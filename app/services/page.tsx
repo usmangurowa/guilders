@@ -1,103 +1,140 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FormSheet } from "@/components/sheet";
 import { divisions } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Lines of Business",
+  title: "What we do",
   description:
-    "The schedule of operations of Guilders Limited — technology, logistics, commerce, assets and ventures, line by line.",
+    "Guilders Limited operates five divisions: technology and digital solutions, transport and logistics, trade and commerce, assets and leasing, and ventures and investments.",
+};
+
+function Check() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      aria-hidden="true"
+      className="mt-0.5 shrink-0"
+    >
+      <rect width="20" height="20" rx="10" fill="#DDEFE6" />
+      <path
+        d="M6 10.2l2.6 2.6L14 7.4"
+        stroke="#0B6E43"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+const divisionShortNames: Record<string, string> = {
+  technology: "Technology",
+  logistics: "Logistics",
+  commerce: "Commerce",
+  assets: "Assets",
+  ventures: "Ventures",
 };
 
 export default function ServicesPage() {
   return (
-    <FormSheet formNo="GL-03" formTitle="Schedule of Operations">
-      <section className="pt-8">
-        <h1 className="max-w-[24ch] font-form text-3xl font-black uppercase tracking-[0.02em] text-ink sm:text-4xl">
-          Schedule of operations
-        </h1>
-        <p className="mt-4 max-w-[70ch] font-typed text-sm leading-7 text-ink">
-          Continuation sheets to Form GL-01. Each line of business is recorded
-          below with the work it covers and the services it offers.
-        </p>
-        <nav aria-label="Lines on this schedule" className="mt-8">
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+    <>
+      {/* Header */}
+      <section className="border-b border-line">
+        <div className="container-site py-16 sm:py-24">
+          <p className="text-sm font-semibold text-green">What we do</p>
+          <h1 className="display-section mt-4 max-w-3xl text-ink">
+            Everything we build, move, trade, hold and back
+          </h1>
+          <p className="mt-6 max-w-[58ch] text-lg leading-8 text-body">
+            Five divisions, each drawn directly from our memorandum of
+            association — described here plainly, so you know exactly what to
+            expect when you engage us.
+          </p>
+          <nav aria-label="Divisions" className="mt-8 flex flex-wrap gap-3">
             {divisions.map((d) => (
-              <li key={d.slug}>
-                <a
-                  href={`#${d.slug}`}
-                  className="typedlink font-typed text-xs uppercase"
-                >
-                  Line {d.line} — {d.name}
-                </a>
-              </li>
+              <a
+                key={d.slug}
+                href={`#${d.slug}`}
+                className="rounded-full border border-line px-4 py-2 text-sm font-medium text-body transition-colors hover:border-green hover:text-green"
+              >
+                {d.name}
+              </a>
             ))}
-          </ul>
-        </nav>
+          </nav>
+        </div>
       </section>
 
-      {divisions.map((d) => (
-        <section key={d.slug} id={d.slug} className="mt-20 scroll-mt-24">
-          <div className="border-y-2 border-ink py-3">
-            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-              <h2 className="font-form text-lg font-black uppercase tracking-[0.04em] text-ink sm:text-xl">
-                Line {d.line} — {d.name}
-              </h2>
-              <p className="font-typed text-xs uppercase text-form">
-                Memo clause {d.clause}
-              </p>
+      {/* Divisions */}
+      {divisions.map((d, i) => (
+        <section
+          key={d.slug}
+          id={d.slug}
+          className={`scroll-mt-24 ${i % 2 === 1 ? "bg-mint" : ""}`}
+        >
+          <div className="container-site py-16 sm:py-20">
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+              <div>
+                <p className="text-sm font-semibold text-green">
+                  {divisionShortNames[d.slug]}
+                </p>
+                <h2 className="display-sub mt-3 text-ink">{d.name}</h2>
+                <p className="mt-3 text-lg font-medium leading-7 text-ink">
+                  {d.tagline}
+                </p>
+                <p className="mt-4 max-w-[58ch] leading-7 text-body">
+                  {d.summary}
+                </p>
+              </div>
+              <ul className="space-y-3 self-center">
+                {d.details.map((item) => (
+                  <li key={item} className="flex gap-3 leading-6 text-body">
+                    <Check />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {d.offerings.map((o) => (
+                <div
+                  key={o.title}
+                  className={`rounded-2xl p-6 ${
+                    i % 2 === 1
+                      ? "bg-white shadow-[0_1px_2px_rgb(10_31_24/0.05),0_10px_28px_-14px_rgb(10_31_24/0.12)]"
+                      : "border border-line"
+                  }`}
+                >
+                  <h3 className="font-display text-lg font-semibold tracking-tight text-ink">
+                    {o.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-body">{o.text}</p>
+                </div>
+              ))}
             </div>
           </div>
-          <p className="mt-5 max-w-[70ch] font-typed text-sm leading-7 text-ink">
-            {d.summary}
-          </p>
-
-          <h3 className="mt-8 font-form text-[11px] font-bold uppercase tracking-[0.16em] text-form">
-            Scope of work
-          </h3>
-          <ul className="mt-3 max-w-[70ch]">
-            {d.details.map((detail) => (
-              <li
-                key={detail.slice(0, 40)}
-                className="border-b border-rule py-2.5 font-typed text-sm leading-6 text-ink"
-              >
-                {detail}
-              </li>
-            ))}
-          </ul>
-
-          <h3 className="mt-8 font-form text-[11px] font-bold uppercase tracking-[0.16em] text-form">
-            Services on offer
-          </h3>
-          <dl className="mt-3 grid gap-px overflow-hidden border border-rule bg-rule sm:grid-cols-3">
-            {d.offerings.map((o) => (
-              <div key={o.title} className="bg-paper p-4">
-                <dt className="font-typed text-sm font-bold uppercase text-ink">
-                  {o.title}
-                </dt>
-                <dd className="mt-2 font-typed text-[13px] leading-6 text-ink-soft">
-                  {o.text}
-                </dd>
-              </div>
-            ))}
-          </dl>
         </section>
       ))}
 
-      <section className="mt-20">
-        <h2 className="font-form text-sm font-bold uppercase tracking-[0.1em] text-form">
-          To engage any line
-        </h2>
-        <div className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-4">
-          <p className="max-w-[52ch] font-typed text-sm leading-7 text-ink">
-            State the line number and the work required. We reply within two
-            working days.
+      {/* CTA */}
+      <section className="bg-dark">
+        <div className="container-site py-16 text-center sm:py-20">
+          <h2 className="display-sub mx-auto max-w-xl text-white">
+            Not sure which division you need?
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg leading-7 text-[#a9c4b8]">
+            Describe the job — we&apos;ll route it to the right team and reply
+            within one business day.
           </p>
-          <Link href="/contact/" className="stampbtn">
-            Open an enquiry
-          </Link>
+          <div className="mt-8">
+            <Link href="/contact/" className="btn-on-dark">
+              Talk to us
+            </Link>
+          </div>
         </div>
       </section>
-    </FormSheet>
+    </>
   );
 }

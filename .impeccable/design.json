@@ -1,125 +1,310 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-01T19:00:00Z",
-  "title": "Design System: Guilders Limited",
+  "generatedAt": "2026-09-01T19:35:00Z",
+  "title": "Design System: Guilders Limited \u2014 The Platform Standard",
   "extensions": {
     "colorMeta": {
-      "desk": { "role": "neutral", "displayName": "Desk", "canonical": "#e6dfca", "tonalRamp": ["#262218", "#4a4433", "#6e6650", "#918870", "#b3aa8f", "#d0c8ad", "#e6dfca", "#f5f1e3"] },
-      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#faf7ec", "tonalRamp": ["#2a2718", "#4f4a33", "#746e50", "#989170", "#bcb48f", "#ddd5b3", "#f0ecd7", "#faf7ec"] },
-      "paper-2": { "role": "neutral", "displayName": "Paper 2", "canonical": "#f1ebd8", "tonalRamp": ["#282415", "#4c4630", "#70684c", "#948b6c", "#b8ae8c", "#d7cdb0", "#e8e0c8", "#f1ebd8"] },
-      "copy-pink": { "role": "neutral", "displayName": "Carbon Pink", "canonical": "#f7e9e6", "tonalRamp": ["#2b1a17", "#523431", "#79504c", "#9f6f6a", "#c4938d", "#e0b9b4", "#efd4d0", "#f7e9e6"] },
-      "copy-gold": { "role": "neutral", "displayName": "Carbon Gold", "canonical": "#f4ead0", "tonalRamp": ["#2a2310", "#4f4527", "#756741", "#9a8a5e", "#bfae7f", "#dcccA3", "#ebdcbc", "#f4ead0"] },
-      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#221f16", "tonalRamp": ["#221f16", "#3b372a", "#575142", "#75705e", "#95907d", "#b5b09e", "#d5d1c2", "#f0eee6"] },
-      "ink-soft": { "role": "neutral", "displayName": "Ink Soft", "canonical": "#5a5648", "tonalRamp": ["#1c1a14", "#35322a", "#4a473c", "#5a5648", "#7d7968", "#a09c8b", "#c4c0b1", "#e6e4db"] },
-      "form-blue": { "role": "primary", "displayName": "Form Blue", "canonical": "#274690", "tonalRamp": ["#101c3a", "#1a2d5e", "#274690", "#3a5cad", "#5878c2", "#7f98d4", "#aabce4", "#d6e0f4"] },
-      "rule-blue": { "role": "neutral", "displayName": "Rule Blue", "canonical": "#b6bfd8", "tonalRamp": ["#232c42", "#3c496a", "#576791", "#7684ad", "#96a2c3", "#b6bfd8", "#d2d8e8", "#edf0f7"] },
-      "stamp-red": { "role": "secondary", "displayName": "Stamp Red", "canonical": "#b02e20", "tonalRamp": ["#3e0f0a", "#671a12", "#8c2419", "#b02e20", "#c85447", "#dc7f74", "#ecaba3", "#f8d6d1"] }
+      "white": {
+        "role": "neutral",
+        "displayName": "Canvas White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#1a1a1a",
+          "#3d3d3d",
+          "#616161",
+          "#858585",
+          "#a9a9a9",
+          "#cdcdcd",
+          "#ececec",
+          "#ffffff"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0a1f18",
+        "tonalRamp": [
+          "#0a1f18",
+          "#1c332b",
+          "#31493f",
+          "#4a5a52",
+          "#66756d",
+          "#8b9a92",
+          "#b3beb8",
+          "#dce3df"
+        ]
+      },
+      "body": {
+        "role": "neutral",
+        "displayName": "Body",
+        "canonical": "#4a5a52",
+        "tonalRamp": [
+          "#131d18",
+          "#28352e",
+          "#3a4740",
+          "#4a5a52",
+          "#66756d",
+          "#8b9a92",
+          "#b3beb8",
+          "#dce3df"
+        ]
+      },
+      "soft": {
+        "role": "neutral",
+        "displayName": "Soft",
+        "canonical": "#66756d",
+        "tonalRamp": [
+          "#171f1b",
+          "#2d3833",
+          "#46524c",
+          "#66756d",
+          "#84928a",
+          "#a4b0a9",
+          "#c6cec9",
+          "#e6eae8"
+        ]
+      },
+      "green": {
+        "role": "primary",
+        "displayName": "Guilders Green",
+        "canonical": "#0b6e43",
+        "tonalRamp": [
+          "#042b19",
+          "#095c38",
+          "#0b6e43",
+          "#128a54",
+          "#17b26a",
+          "#4cc98d",
+          "#8fdfb6",
+          "#ddefe6"
+        ]
+      },
+      "green-deep": {
+        "role": "primary",
+        "displayName": "Green Deep",
+        "canonical": "#095c38",
+        "tonalRamp": [
+          "#032418",
+          "#064228",
+          "#095c38",
+          "#0b6e43",
+          "#128a54",
+          "#17b26a",
+          "#6bd29d",
+          "#c9ecd9"
+        ]
+      },
+      "green-bright": {
+        "role": "primary",
+        "displayName": "Green Bright",
+        "canonical": "#17b26a",
+        "tonalRamp": [
+          "#053a22",
+          "#0a5a35",
+          "#0e7d4a",
+          "#17b26a",
+          "#3fc584",
+          "#72d6a4",
+          "#a8e6c6",
+          "#d9f4e6"
+        ]
+      },
+      "mint": {
+        "role": "neutral",
+        "displayName": "Mint Surface",
+        "canonical": "#eef6f1",
+        "tonalRamp": [
+          "#16241d",
+          "#2c463a",
+          "#436a57",
+          "#5f8d75",
+          "#84ad96",
+          "#adc9ba",
+          "#d1e3d9",
+          "#eef6f1"
+        ]
+      },
+      "mint-deep": {
+        "role": "neutral",
+        "displayName": "Mint Deep",
+        "canonical": "#ddefe6",
+        "tonalRamp": [
+          "#142219",
+          "#294435",
+          "#3f6650",
+          "#5a886d",
+          "#7ea78e",
+          "#a6c5b2",
+          "#c5ddd0",
+          "#ddefe6"
+        ]
+      },
+      "dark": {
+        "role": "neutral",
+        "displayName": "Dark Band",
+        "canonical": "#071b14",
+        "tonalRamp": [
+          "#071b14",
+          "#0b2f22",
+          "#1c3a2e",
+          "#2f4f40",
+          "#4a6a58",
+          "#7f9c8f",
+          "#a9c4b8",
+          "#d3e4db"
+        ]
+      },
+      "dark-2": {
+        "role": "neutral",
+        "displayName": "Dark Hover",
+        "canonical": "#0b2f22",
+        "tonalRamp": [
+          "#05140d",
+          "#0b2f22",
+          "#164031",
+          "#255343",
+          "#3d6b57",
+          "#648876",
+          "#94aa9e",
+          "#c9d6cf"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e5ece8",
+        "tonalRamp": [
+          "#161d19",
+          "#2e3a34",
+          "#4a5a52",
+          "#6d7d74",
+          "#93a29a",
+          "#b9c5bf",
+          "#d3ddd8",
+          "#e5ece8"
+        ]
+      },
+      "line-dark": {
+        "role": "neutral",
+        "displayName": "Hairline Dark",
+        "canonical": "#1c3a2e",
+        "tonalRamp": [
+          "#0b1a13",
+          "#1c3a2e",
+          "#2b5142",
+          "#3d6a57",
+          "#558370",
+          "#7ba18e",
+          "#a8c2b4",
+          "#d6e5dd"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display (Typed)", "purpose": "Page titles and letterhead. The company typed its own headings." },
-      "headline": { "displayName": "Headline (Typed)", "purpose": "Section and line-item headings, uppercase, underlined." },
-      "body": { "displayName": "Body (Typed)", "purpose": "Typed entries; sits on the 2rem ledger ruling; max 70ch." },
-      "label": { "displayName": "Label (Printed)", "purpose": "Franklin printed-form labels in form-blue: LINE, STATUS, MEMO CLAUSE." },
-      "script": { "displayName": "Signature", "purpose": "The director's authorised signature only." }
+      "display-hero": {
+        "displayName": "Display Hero (Inter Tight)",
+        "purpose": "Home H1 only. clamp(2.625rem, 6.4vw, 4.75rem), weight 600, -0.035em."
+      },
+      "display-section": {
+        "displayName": "Display Section (Inter Tight)",
+        "purpose": "Page H1s and band headings. clamp(2rem, 4vw, 3rem), -0.03em."
+      },
+      "display-sub": {
+        "displayName": "Display Sub (Inter Tight)",
+        "purpose": "Section and division headings. clamp(1.5rem, 2.6vw, 2rem), -0.02em. Card headings use text-lg/text-xl; stats use text-2xl and 1.75rem."
+      },
+      "body": {
+        "displayName": "Body (Inter)",
+        "purpose": "Paragraphs 1rem-1.25rem relaxed leading; checklist items 15px; UI small copy 0.875rem."
+      },
+      "label": {
+        "displayName": "Section Label (Inter)",
+        "purpose": "Small green semibold sentence-case labels \u2014 the Mono signature. Never uppercase-tracked."
+      },
+      "code": {
+        "displayName": "Code (ui-monospace)",
+        "purpose": "Terminal card only. 13px/1.5."
+      }
     },
     "shadows": [
-      { "name": "sheet", "value": "0 1px 2px rgba(34,31,22,0.1), 0 12px 32px -12px rgba(34,31,22,0.28)", "purpose": "The one shadow: the paper sheet resting on the desk." }
+      {
+        "name": "card-ui",
+        "value": "0 1px 2px rgb(10 31 24 / 0.05), 0 12px 32px -12px rgb(10 31 24 / 0.18)",
+        "purpose": "UI cards resting on the canvas. Offset + blur, never a zero-offset halo."
+      },
+      {
+        "name": "card-soft",
+        "value": "0 1px 2px rgb(10 31 24 / 0.05), 0 10px 28px -14px rgb(10 31 24 / 0.12)",
+        "purpose": "Principle cards on mint surfaces."
+      }
     ],
     "motion": [
-      { "name": "stamp-in", "value": "0.34s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both", "purpose": "The stamp lands once: scale 1.55 to 1 at -8deg. Disabled under prefers-reduced-motion." },
-      { "name": "state", "value": "0.15s ease-out", "purpose": "Hover/active transitions on links and the stamp button." }
+      {
+        "name": "card-rise",
+        "value": "0.55s cubic-bezier(0.16, 1, 0.3, 1) both",
+        "purpose": "The one authored moment: hero cards rise 14px and fade in, staggered 80ms/220ms. Disabled under prefers-reduced-motion."
+      },
+      {
+        "name": "state",
+        "value": "0.15s ease",
+        "purpose": "Hover color/border transitions on links, buttons, cards."
+      }
     ],
     "breakpoints": [
-      { "name": "sm", "value": "640px" },
-      { "name": "md", "value": "768px" },
-      { "name": "lg", "value": "1024px" }
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
     ]
   },
   "components": [
     {
-      "name": "Stamp Button",
+      "name": "Primary Button",
       "kind": "button",
-      "refersTo": "button-stamp",
-      "description": "The single CTA per page, drawn as a rubber stamp box.",
-      "html": "<a class=\"ds-stampbtn\" href=\"#\">Open an enquiry</a>",
-      "css": ".ds-stampbtn { display: inline-block; border: 2.5px solid #b02e20; border-radius: 6px; color: #b02e20; background: transparent; font-family: 'Libre Franklin', 'Franklin Gothic Medium', Arial, sans-serif; font-weight: 800; letter-spacing: 0.08em; padding: 0.8rem 1.6rem; transform: rotate(-0.75deg); text-decoration: none; transition: background-color 0.15s ease-out, color 0.15s ease-out, transform 0.15s ease-out; } .ds-stampbtn:hover { background: #b02e20; color: #faf7ec; } .ds-stampbtn:focus-visible { outline: 2px solid #274690; outline-offset: 2px; } .ds-stampbtn:active { transform: rotate(-0.75deg) translateY(1px); }"
+      "refersTo": "btn-primary",
+      "description": "Solid green CTA. White text on #0b6e43, hover deepens.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Work with us</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: #0b6e43; color: #ffffff; font-weight: 600; padding: 0.875rem 1.5rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.15s ease; } .ds-btn-primary:hover { background: #095c38; } .ds-btn-primary:focus-visible { outline: 2px solid #0b6e43; outline-offset: 2px; }"
     },
     {
-      "name": "Typed Link",
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "btn-secondary",
+      "description": "Ghost button: ink text, hairline border.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Explore our divisions</a>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; color: #0a1f18; border: 1px solid #e5ece8; font-weight: 600; padding: 0.875rem 1.5rem; border-radius: 0.5rem; text-decoration: none; background: #ffffff; transition: border-color 0.15s ease; } .ds-btn-secondary:hover { border-color: #0b6e43; }"
+    },
+    {
+      "name": "UI Card",
+      "kind": "card",
+      "refersTo": "card-ui",
+      "description": "The signature visual: a white operational-artifact card (tracking, terminal, order, lease, portfolio).",
+      "html": "<div class=\"ds-card-ui\"><p>Consignment GL-2841</p></div>",
+      "css": ".ds-card-ui { background: #ffffff; border: 1px solid #e5ece8; border-radius: 1rem; box-shadow: 0 1px 2px rgb(10 31 24 / 0.05), 0 12px 32px -12px rgb(10 31 24 / 0.18); }"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "badge",
+      "refersTo": "status-chip",
+      "description": "Rounded-full mint-deep chip with green semibold text: In transit, Paid, Delivered.",
+      "html": "<span class=\"ds-chip\">In transit</span>",
+      "css": ".ds-chip { display: inline-block; background: #ddefe6; color: #0b6e43; font-size: 0.75rem; font-weight: 600; border-radius: 9999px; padding: 0.25rem 0.625rem; }"
+    },
+    {
+      "name": "Arrow Link",
       "kind": "custom",
-      "refersTo": "link-typed",
-      "description": "Secondary action: typed text underlined in form-blue.",
-      "html": "<a class=\"ds-typedlink\" href=\"#\">hello@guilders.ltd</a>",
-      "css": ".ds-typedlink { font-family: 'Courier Prime', 'Courier New', monospace; font-size: 0.875rem; color: #221f16; text-decoration: underline; text-decoration-color: #274690; text-decoration-thickness: 1.5px; text-underline-offset: 4px; transition: background-color 0.15s ease-out; } .ds-typedlink:hover { background: rgba(39,70,144,0.1); } .ds-typedlink:focus-visible { outline: 2px solid #274690; outline-offset: 2px; }"
-    },
-    {
-      "name": "Folder Tabs",
-      "kind": "nav",
-      "refersTo": "tab-active",
-      "description": "File-folder tab navigation; the active tab fuses into the sheet.",
-      "html": "<nav class=\"ds-tabs\"><a class=\"ds-tab ds-tab--active\" href=\"#\" aria-current=\"page\">Manifest <span>GL-01</span></a><a class=\"ds-tab\" href=\"#\">Company Record <span>GL-02</span></a><a class=\"ds-tab\" href=\"#\">Enquiries <span>GL-04</span></a></nav>",
-      "css": ".ds-tabs { display: flex; gap: 4px; align-items: flex-end; background: #e6dfca; padding: 12px 12px 0; } .ds-tab { font-family: 'Libre Franklin', Arial, sans-serif; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #5a5648; background: #f1ebd8; border: 1px solid rgba(34,31,22,0.28); border-bottom: none; padding: 10px 18px; text-decoration: none; } .ds-tab span { color: #7f98d4; } .ds-tab--active { background: #faf7ec; color: #221f16; } .ds-tab--active span { color: #274690; } .ds-tab:hover { background: #faf7ec; } .ds-tab:focus-visible { outline: 2px solid #274690; outline-offset: 2px; }"
-    },
-    {
-      "name": "Form Label",
-      "kind": "chip",
-      "refersTo": "label",
-      "description": "Printed-form label chrome in form-blue.",
-      "html": "<span class=\"ds-formlabel\">Description of business</span>",
-      "css": ".ds-formlabel { font-family: 'Libre Franklin', 'Franklin Gothic Medium', Arial, sans-serif; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #274690; }"
-    },
-    {
-      "name": "Registered Stamp",
-      "kind": "custom",
-      "refersTo": "button-stamp",
-      "description": "The signature element: a rotated red rubber stamp with uneven ink.",
-      "html": "<div class=\"ds-stamp\"><div class=\"ds-stamp-outer\"><div class=\"ds-stamp-inner\"><p class=\"ds-stamp-word\">Registered</p><p class=\"ds-stamp-line\">RC 9819868 · CAC Nigeria</p><p class=\"ds-stamp-line\">01 Sep 2026</p></div></div></div>",
-      "css": ".ds-stamp { display: inline-block; transform: rotate(-8deg); mix-blend-mode: multiply; opacity: 0.93; } .ds-stamp-outer { border: 3px solid #b02e20; border-radius: 8px; padding: 4px; } .ds-stamp-inner { border: 1px solid #b02e20; border-radius: 6px; padding: 8px 16px; text-align: center; } .ds-stamp-word { font-family: 'Libre Franklin', Arial, sans-serif; font-size: 1.25rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.18em; color: #b02e20; margin: 0; line-height: 1; } .ds-stamp-line { font-family: 'Libre Franklin', Arial, sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.22em; color: #b02e20; margin: 4px 0 0; }"
-    },
-    {
-      "name": "Ruled Paragraph",
-      "kind": "custom",
-      "refersTo": "body",
-      "description": "Typed body copy sitting on 2rem ledger ruling.",
-      "html": "<div class=\"ds-ruled\"><p>Being a true record of the lines of business registered and carried on by Guilders Limited, a private company limited by shares.</p></div>",
-      "css": ".ds-ruled { max-width: 70ch; background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(2rem - 1px), #b6bfd8 calc(2rem - 1px), #b6bfd8 2rem); } .ds-ruled p { font-family: 'Courier Prime', 'Courier New', monospace; font-size: 0.875rem; color: #221f16; line-height: 2rem; margin: 0; }"
-    },
-    {
-      "name": "Blank Field",
-      "kind": "input",
-      "refersTo": "body",
-      "description": "A blank form field the visitor would fill by hand.",
-      "html": "<div class=\"ds-blank\"><span class=\"ds-formlabel2\">1. From</span><p class=\"ds-blankline\">Your name and organisation</p></div>",
-      "css": ".ds-formlabel2 { font-family: 'Libre Franklin', Arial, sans-serif; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #274690; } .ds-blankline { border-bottom: 1px solid #5a5648; min-height: 2rem; font-family: 'Courier Prime', monospace; font-size: 0.875rem; color: #5a5648; margin: 4px 0 0; padding-bottom: 4px; max-width: 48ch; }"
+      "refersTo": "link-arrow",
+      "description": "Green semibold inline link with trailing arrow: 'More about logistics \u2192'.",
+      "html": "<a class=\"ds-link-arrow\" href=\"#\">More about logistics \u2192</a>",
+      "css": ".ds-link-arrow { display: inline-flex; align-items: center; gap: 0.375rem; color: #0b6e43; font-weight: 600; text-decoration: none; } .ds-link-arrow:hover { color: #095c38; text-decoration: underline; }"
     }
-  ],
-  "narrative": {
-    "northStar": "The Operations Manifest",
-    "overview": "The entire site is Guilders Limited's own stamped trade paperwork. Every page is a numbered form sheet (GL-01 through GL-06, GL-99 for errors) resting on a desk surface: letterhead at the top, printed-form chrome in blue, entries typed in Courier, a red rubber stamp for registration, and an authorised signature at the foot. A young Nigerian trading company earns trust by showing its papers, not by imitating fintech gradients — so nothing here is decoration; every element is something a real waybill, registry extract, or continuation sheet would carry.",
-    "keyCharacteristics": [
-      "Every page is a numbered paper form on a desk, never a \"web page\"",
-      "Two inks on paper: form-blue for printed chrome, typed ink for content; stamp-red is scarce",
-      "Real paper material: subtle grain on desk and sheets, broken ink on the stamp",
-      "File-folder tab navigation; legal pages are pink/gold carbon copies",
-      "All facts verifiable (RC number, dates, address); no invented claims"
-    ],
-    "rules": [
-      { "name": "The Two-Inks Rule", "body": "Content is typed in ink; chrome is printed in form-blue; stamp-red appears only as the REGISTERED stamp and the single stamp-box CTA per page. No other hues exist.", "section": "colors" },
-      { "name": "The Carbon-Copy Rule", "body": "Legal pages are not styled differently — they are the same form on pink or gold carbon paper.", "section": "colors" },
-      { "name": "The Ruling Rule", "body": "Ruled paragraphs sit exactly on the 2rem ledger ruling: line-height 2rem, no margins between ruled lines.", "section": "typography" },
-      { "name": "The One-Sheet Rule", "body": "Only the sheet casts a shadow. Elements on the paper are printed or stamped flat.", "section": "elevation" }
-    ],
-    "dos": [
-      "Do render every new page as a numbered form sheet with letterhead, footer, and microprint — extend the GL-XX series.",
-      "Do keep body copy on the 2rem ruling at ≤70ch and labels in Franklin 700 / 0.18em tracking / form-blue.",
-      "Do apply the shared grain (--grain) to any new paper surface.",
-      "Do keep stamp-red scarce: one stamp and/or one CTA per page."
-    ],
-    "donts": [
-      "Don't add gradients, glass, icon cards, hero imagery, or drop shadows inside the paper.",
-      "Don't introduce new hues, rounded corners (beyond the stamp's 6px), or a second button style.",
-      "Don't invent claims, metrics, or testimonials — every fact must be verifiable against the company record.",
-      "Don't animate anything except the stamp landing."
-    ]
-  }
+  ]
 }

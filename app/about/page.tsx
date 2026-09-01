@@ -1,117 +1,142 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FormSheet } from "@/components/sheet";
 import { site, divisions } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Company Record",
+  title: "About",
   description:
-    "The company record of Guilders Limited — registration, structure and the particulars of a diversified Nigerian company.",
+    "Guilders Limited is a diversified Nigerian company incorporated under CAMA 2020, operating across technology, logistics, commerce, assets and ventures.",
 };
 
-const record = [
-  { label: "Registered name", value: "Guilders Limited" },
-  { label: "Registration number", value: site.rcNumber },
-  { label: "Date of incorporation", value: site.incorporated },
-  { label: "Company type", value: "Private company limited by shares" },
-  { label: "Registered office", value: site.address },
-  { label: "Issued share capital", value: "₦1,000,000" },
-  { label: "Director", value: "Hassan Usman Gurowa" },
-  { label: "Status", value: "Active" },
+const facts: [string, string][] = [
+  ["Legal name", "Guilders Limited"],
+  ["Company type", "Private company limited by shares"],
+  ["RC number", site.rcNumber],
+  ["Incorporated", `${site.incorporated} — CAC, Nigeria`],
+  ["Governing law", "Companies and Allied Matters Act 2020"],
+  ["Share capital", "₦1,000,000"],
+  ["Registered office", site.address],
+  ["Director", "Hassan Usman Gurowa"],
 ];
 
 export default function AboutPage() {
   return (
-    <FormSheet formNo="GL-02" formTitle="Company Record">
-      <section className="pt-8">
-        <h1 className="max-w-[24ch] font-form text-3xl font-black uppercase tracking-[0.02em] text-ink sm:text-4xl">
-          Extract from the company file
+    <>
+      {/* Header */}
+      <section className="container-site py-16 sm:py-24">
+        <p className="text-sm font-semibold text-green">Company</p>
+        <h1 className="display-section mt-4 max-w-3xl text-ink">
+          A Nigerian company built to operate, not just to exist
         </h1>
-        <p className="mt-4 max-w-[70ch] font-typed text-sm leading-7 text-ink">
-          The particulars below are taken from the records of the Corporate
-          Affairs Commission and the memorandum of association of Guilders
-          Limited. Nothing here is decoration — every entry can be checked
-          against the register.
-        </p>
-
-        <dl className="mt-10 border-t-2 border-ink">
-          {record.map((r) => (
-            <div
-              key={r.label}
-              className="grid gap-x-6 border-b border-rule py-3 sm:grid-cols-[14rem_1fr]"
-            >
-              <dt className="font-form text-[11px] font-bold uppercase tracking-[0.16em] text-form">
-                {r.label}
-              </dt>
-              <dd className="mt-1 font-typed text-sm text-ink sm:mt-0">
-                {r.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <div className="mt-8 max-w-3xl space-y-5 text-lg leading-8 text-body">
+          <p>
+            Guilders Limited was incorporated in Makurdi, Benue State, with a
+            deliberately broad mandate: to build and run real businesses across
+            the sectors where Nigeria needs dependable operators — technology,
+            transport, trade, assets and investment.
+          </p>
+          <p>
+            We are not a marketplace, an agency or a broker. We own our
+            operations. Our engineers write the software, our fleet moves the
+            goods, our contracts carry our name — and the same standard of
+            delivery applies across every division.
+          </p>
+        </div>
       </section>
 
-      <section className="mt-16">
-        <h2 className="font-form text-sm font-bold uppercase tracking-[0.1em] text-form">
-          Objects of the company
+      {/* Registration facts */}
+      <section className="border-y border-line bg-mint">
+        <div className="container-site grid gap-12 py-16 sm:py-20 lg:grid-cols-[1fr_1.3fr]">
+          <div>
+            <h2 className="display-sub text-ink">On the record</h2>
+            <p className="mt-4 max-w-[46ch] leading-7 text-body">
+              Everything below is drawn from our incorporation documents at the
+              Corporate Affairs Commission. It is the full, verifiable record
+              of who we are.
+            </p>
+          </div>
+          <dl className="divide-y divide-line rounded-2xl border border-line bg-white px-6 sm:px-8">
+            {facts.map(([label, value]) => (
+              <div
+                key={label}
+                className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6"
+              >
+                <dt className="text-sm font-medium text-soft">{label}</dt>
+                <dd className="text-[15px] font-medium leading-6 text-ink">
+                  {value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* What we do */}
+      <section className="container-site py-16 sm:py-24">
+        <h2 className="display-sub max-w-2xl text-ink">
+          Five divisions under one roof
         </h2>
-        <p className="mt-4 max-w-[70ch] font-typed text-sm leading-7 text-ink">
-          The memorandum of association registers five objects — the five
-          lines this company was formed to carry on:
+        <p className="mt-4 max-w-[60ch] leading-7 text-body">
+          Our memorandum of association authorises five lines of business.
+          Each is run as a distinct division with its own focus — and each
+          strengthens the others.
         </p>
-        <ol className="mt-6 border-t border-rule">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {divisions.map((d) => (
-            <li
+            <Link
               key={d.slug}
-              className="grid gap-x-6 border-b border-rule py-3 sm:grid-cols-[14rem_1fr]"
+              href={`/services/#${d.slug}`}
+              className="group rounded-2xl border border-line p-6 transition-colors hover:border-green"
             >
-              <span className="font-form text-[11px] font-bold uppercase tracking-[0.16em] text-form">
-                Clause {d.clause}
+              <h3 className="font-display text-lg font-semibold tracking-tight text-ink">
+                {d.name}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-body">{d.tagline}</p>
+              <span className="mt-4 inline-block text-sm font-semibold text-green">
+                Learn more →
               </span>
-              <span className="mt-1 font-typed text-sm text-ink sm:mt-0">
-                {d.name} — {d.tagline}
-              </span>
-            </li>
+            </Link>
           ))}
-        </ol>
-      </section>
-
-      <section className="mt-16">
-        <h2 className="font-form text-sm font-bold uppercase tracking-[0.1em] text-form">
-          Statement of the director
-        </h2>
-        <div className="ruled mt-4 max-w-[70ch]">
-          <p className="font-typed text-sm text-ink">
-            Guilders was incorporated to do a simple thing well: build and
-            operate real businesses in Nigeria, and keep proper records while
-            doing it.
-          </p>
-          <p className="font-typed text-sm text-ink">
-            We are young by the calendar and deliberate by design. Each line
-            of business starts small, is run to account, and grows on its own
-            performance — technology first, with logistics, commerce, assets
-            and ventures alongside.
-          </p>
-          <p className="font-typed text-sm text-ink">
-            If you deal with Guilders, you deal with a company that puts
-            things in writing. This website is kept the same way.
-          </p>
         </div>
       </section>
 
-      <section className="mt-16">
-        <h2 className="font-form text-sm font-bold uppercase tracking-[0.1em] text-form">
-          Cross-references
-        </h2>
-        <div className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-4">
-          <Link href="/services/" className="typedlink font-typed text-sm uppercase">
-            Schedule of operations — GL-03
-          </Link>
-          <Link href="/contact/" className="stampbtn">
-            Open an enquiry
-          </Link>
+      {/* Leadership */}
+      <section className="border-t border-line">
+        <div className="container-site grid gap-10 py-16 sm:py-20 lg:grid-cols-[1fr_1.3fr]">
+          <h2 className="display-sub text-ink">Leadership</h2>
+          <div>
+            <p className="font-display text-xl font-semibold tracking-tight text-ink">
+              Hassan Usman Gurowa
+            </p>
+            <p className="mt-1 text-sm font-medium text-green">
+              Founder &amp; Director
+            </p>
+            <p className="mt-4 max-w-[58ch] leading-7 text-body">
+              Hassan founded Guilders to prove that a Nigerian company can be
+              diversified and disciplined at the same time. He is the
+              company&apos;s sole director and drives its strategy across all
+              five divisions from Makurdi.
+            </p>
+          </div>
         </div>
       </section>
-    </FormSheet>
+
+      {/* CTA */}
+      <section className="bg-dark">
+        <div className="container-site py-16 text-center sm:py-20">
+          <h2 className="display-sub mx-auto max-w-xl text-white">
+            Want to work with us?
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg leading-7 text-[#a9c4b8]">
+            We answer every serious enquiry within one business day.
+          </p>
+          <div className="mt-8">
+            <Link href="/contact/" className="btn-on-dark">
+              Get in touch
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

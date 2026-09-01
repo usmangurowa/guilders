@@ -1,93 +1,87 @@
 import type { Metadata } from "next";
-import { FormSheet } from "@/components/sheet";
-import { site, divisions } from "@/lib/site";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Enquiries",
+  title: "Contact",
   description:
-    "Open an enquiry with Guilders Limited — email hello@guilders.ltd or call +234 813 922 3164.",
+    "Contact Guilders Limited — email hello@guilders.ltd or call +234 813 922 3164. Registered office: 15 Ntonko Close, New Garage, Makurdi, Benue State, Nigeria.",
 };
 
 export default function ContactPage() {
   return (
-    <FormSheet formNo="GL-04" formTitle="Enquiry Form">
-      <section className="pt-8">
-        <h1 className="max-w-[24ch] font-form text-3xl font-black uppercase tracking-[0.02em] text-ink sm:text-4xl">
-          Open an enquiry
+    <>
+      <section className="container-site py-16 sm:py-24">
+        <p className="text-sm font-semibold text-green">Contact</p>
+        <h1 className="display-section mt-4 max-w-2xl text-ink">
+          Tell us what you need
         </h1>
-        <p className="mt-4 max-w-[70ch] font-typed text-sm leading-7 text-ink">
-          This office answers every enquiry within two working days. Write to
-          us directly, or complete the particulars below in your email so we
-          can route it to the right line of business.
+        <p className="mt-6 max-w-[54ch] text-lg leading-8 text-body">
+          Software, haulage, supply, leasing or a venture worth backing — one
+          message reaches every division. We reply within one business day.
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
-          <a href={`mailto:${site.email}`} className="stampbtn">
-            Write to {site.email}
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <a
+            href={`mailto:${site.email}`}
+            className="group rounded-2xl border border-line p-7 transition-colors hover:border-green"
+          >
+            <p className="text-sm font-medium text-soft">Email — fastest</p>
+            <p className="mt-2 font-display text-xl font-semibold tracking-tight text-ink">
+              {site.email}
+            </p>
+            <span className="mt-4 inline-block text-sm font-semibold text-green">
+              Write to us →
+            </span>
           </a>
           <a
-            href={`tel:${site.phone.replace(/\s/g, "")}`}
-            className="typedlink font-typed text-sm"
+            href="tel:+2348139223164"
+            className="group rounded-2xl border border-line p-7 transition-colors hover:border-green"
           >
-            or call {site.phone}
+            <p className="text-sm font-medium text-soft">Phone &amp; WhatsApp</p>
+            <p className="mt-2 font-display text-xl font-semibold tracking-tight text-ink">
+              {site.phone}
+            </p>
+            <span className="mt-4 inline-block text-sm font-semibold text-green">
+              Call us →
+            </span>
           </a>
+          <div className="rounded-2xl border border-line p-7">
+            <p className="text-sm font-medium text-soft">Registered office</p>
+            <p className="mt-2 font-display text-xl font-semibold leading-snug tracking-tight text-ink">
+              15 Ntonko Close, New Garage
+            </p>
+            <p className="mt-1 text-sm leading-6 text-body">
+              Makurdi, Benue State, Nigeria
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="mt-16" aria-label="Particulars to include in your email">
-        <h2 className="font-form text-sm font-bold uppercase tracking-[0.1em] text-form">
-          Particulars to include
-        </h2>
-        <dl className="mt-6 max-w-[70ch] space-y-7">
-          <div>
-            <dt className="font-form text-[11px] font-bold uppercase tracking-[0.16em] text-form">
-              1. From
-            </dt>
-            <dd className="blankline mt-2 pb-1 font-typed text-sm text-ink-soft">
-              Your name and organisation
-            </dd>
-          </div>
-          <div>
-            <dt className="font-form text-[11px] font-bold uppercase tracking-[0.16em] text-form">
-              2. Line of business
-            </dt>
-            <dd className="blankline mt-2 pb-1 font-typed text-sm text-ink-soft">
-              {divisions.map((d) => `Line ${d.line}`).join(" / ")} — or state
-              “general”
-            </dd>
-          </div>
-          <div>
-            <dt className="font-form text-[11px] font-bold uppercase tracking-[0.16em] text-form">
-              3. The work required
-            </dt>
-            <dd className="blankline mt-2 pb-1 font-typed text-sm text-ink-soft">
-              What you need, where, and by when
-            </dd>
-          </div>
-        </dl>
+      <section className="border-t border-line bg-mint">
+        <div className="container-site py-14 sm:py-16">
+          <h2 className="font-display text-xl font-semibold tracking-tight text-ink">
+            What to include in your message
+          </h2>
+          <ul className="mt-5 grid max-w-4xl gap-4 text-[15px] leading-6 text-body sm:grid-cols-3">
+            <li className="rounded-xl bg-white px-5 py-4">
+              <span className="font-semibold text-ink">The job.</span> What you
+              need done, in a sentence or two.
+            </li>
+            <li className="rounded-xl bg-white px-5 py-4">
+              <span className="font-semibold text-ink">The timeline.</span>{" "}
+              When you need it — even a rough date helps.
+            </li>
+            <li className="rounded-xl bg-white px-5 py-4">
+              <span className="font-semibold text-ink">The best reply.</span>{" "}
+              Email or phone, and when to reach you.
+            </li>
+          </ul>
+          <p className="mt-6 text-sm text-soft">
+            Company details for your records: Guilders Limited · {site.rcNumber}{" "}
+            · {site.address}
+          </p>
+        </div>
       </section>
-
-      <section className="mt-16">
-        <h2 className="font-form text-sm font-bold uppercase tracking-[0.1em] text-form">
-          Registered office
-        </h2>
-        <address className="mt-4 max-w-[70ch] font-typed text-sm not-italic leading-7 text-ink">
-          Guilders Limited · {site.rcNumber}
-          <br />
-          {site.address}
-          <br />
-          <a href={`mailto:${site.email}`} className="typedlink">
-            {site.email}
-          </a>{" "}
-          ·{" "}
-          <a
-            href={`tel:${site.phone.replace(/\s/g, "")}`}
-            className="typedlink"
-          >
-            {site.phone}
-          </a>
-        </address>
-      </section>
-    </FormSheet>
+    </>
   );
 }
