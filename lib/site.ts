@@ -13,17 +13,20 @@ export const site = {
 
 export type Division = {
   slug: string;
+  line: string;
+  clause: string;
   name: string;
   tagline: string;
   summary: string;
   details: string[];
   offerings: { title: string; text: string }[];
-  accent: string;
 };
 
 export const divisions: Division[] = [
   {
     slug: "technology",
+    line: "01",
+    clause: "3(a)",
     name: "Technology & Digital Solutions",
     tagline: "Software, infrastructure and digital services built for scale.",
     summary:
@@ -48,10 +51,11 @@ export const divisions: Division[] = [
         text: "Internet access services and connected business centres that bring reliable digital infrastructure closer to the people who need it.",
       },
     ],
-    accent: "from-sky-500/15 to-transparent",
   },
   {
     slug: "logistics",
+    line: "02",
+    clause: "3(b)",
     name: "Transport & Logistics",
     tagline: "Fleet, haulage and last-mile delivery that keeps commerce moving.",
     summary:
@@ -76,10 +80,11 @@ export const divisions: Division[] = [
         text: "Fast, trackable dispatch and last-mile delivery for merchants, platforms and everyday senders.",
       },
     ],
-    accent: "from-emerald-500/15 to-transparent",
   },
   {
     slug: "commerce",
+    line: "03",
+    clause: "3(c)",
     name: "Trade & Commerce",
     tagline: "General merchandise, supplies and contract execution done properly.",
     summary:
@@ -104,10 +109,11 @@ export const divisions: Division[] = [
         text: "General contract execution delivered on specification, on budget and on time.",
       },
     ],
-    accent: "from-amber-500/15 to-transparent",
   },
   {
     slug: "assets",
+    line: "04",
+    clause: "3(d)",
     name: "Assets & Leasing",
     tagline: "Productive assets, professionally held and put to work.",
     summary:
@@ -132,10 +138,11 @@ export const divisions: Division[] = [
         text: "Professional stewardship of movable and immovable assets across their full life cycle.",
       },
     ],
-    accent: "from-violet-500/15 to-transparent",
   },
   {
     slug: "ventures",
+    line: "05",
+    clause: "3(e)",
     name: "Ventures & Investments",
     tagline: "Backing and building the businesses of tomorrow.",
     summary:
@@ -160,6 +167,5 @@ export const divisions: Division[] = [
         text: "Operating divisions and subsidiaries structured, governed and grown under the Guilders umbrella.",
       },
     ],
-    accent: "from-rose-500/15 to-transparent",
   },
 ];

@@ -1,129 +1,93 @@
 import type { Metadata } from "next";
-import { site } from "@/lib/site";
+import { FormSheet } from "@/components/sheet";
+import { site, divisions } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Enquiries",
   description:
-    "Get in touch with Guilders Limited — partnerships, contracts, leasing, logistics and technology enquiries. Email hello@guilders.ltd.",
+    "Open an enquiry with Guilders Limited — email hello@guilders.ltd or call +234 813 922 3164.",
 };
-
-const channels = [
-  {
-    title: "General enquiries",
-    text: "Questions about Guilders, our divisions or how we work.",
-    action: `mailto:${site.email}?subject=General%20enquiry`,
-    label: site.email,
-  },
-  {
-    title: "Business & partnerships",
-    text: "Contracts, supply deals, leasing, logistics and technology projects.",
-    action: `mailto:${site.email}?subject=Business%20enquiry`,
-    label: site.email,
-  },
-  {
-    title: "Ventures & investment",
-    text: "Pitch a venture, propose an acquisition or discuss co-investment.",
-    action: `mailto:${site.email}?subject=Ventures%20enquiry`,
-    label: site.email,
-  },
-];
 
 export default function ContactPage() {
   return (
-    <>
-      <section className="relative overflow-hidden bg-navy-950 text-white">
-        <div className="grain absolute inset-0" aria-hidden="true" />
-        <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
-            Contact
-          </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-            Talk to Guilders.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-            One inbox reaches every division. Tell us what you need and
-            we&apos;ll route it to the right team — fast.
-          </p>
+    <FormSheet formNo="GL-04" formTitle="Enquiry Form">
+      <section className="pt-8">
+        <h1 className="max-w-[24ch] font-form text-3xl font-black uppercase tracking-[0.02em] text-ink sm:text-4xl">
+          Open an enquiry
+        </h1>
+        <p className="mt-4 max-w-[70ch] font-typed text-sm leading-7 text-ink">
+          This office answers every enquiry within two working days. Write to
+          us directly, or complete the particulars below in your email so we
+          can route it to the right line of business.
+        </p>
+
+        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
+          <a href={`mailto:${site.email}`} className="stampbtn">
+            Write to {site.email}
+          </a>
           <a
-            href={`mailto:${site.email}`}
-            className="mt-8 inline-block rounded-full bg-gold-500 px-7 py-3 text-base font-semibold text-navy-950 transition-colors hover:bg-gold-400"
+            href={`tel:${site.phone.replace(/\s/g, "")}`}
+            className="typedlink font-typed text-sm"
           >
-            {site.email}
+            or call {site.phone}
           </a>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <div className="grid gap-6 md:grid-cols-3">
-          {channels.map((c) => (
-            <a
-              key={c.title}
-              href={c.action}
-              className="group rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-gold-500/50 hover:shadow-xl hover:shadow-navy-900/5"
-            >
-              <h2 className="text-lg font-bold text-navy-900">{c.title}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                {c.text}
-              </p>
-              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-600">
-                {c.label}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden="true"
-                  className="transition-transform group-hover:translate-x-1"
-                >
-                  <path
-                    d="M5 12h14m-6-6 6 6-6 6"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-            </a>
-          ))}
-        </div>
-
-        <div className="mt-16 grid gap-10 rounded-2xl bg-mist p-8 sm:p-12 lg:grid-cols-3">
+      <section className="mt-16" aria-label="Particulars to include in your email">
+        <h2 className="font-form text-sm font-bold uppercase tracking-[0.1em] text-form">
+          Particulars to include
+        </h2>
+        <dl className="mt-6 max-w-[70ch] space-y-7">
           <div>
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-gold-600">
-              Email
-            </h2>
-            <a
-              href={`mailto:${site.email}`}
-              className="mt-2 block text-lg font-semibold text-navy-900 transition-colors hover:text-gold-600"
-            >
-              {site.email}
-            </a>
-            <p className="mt-1 text-sm text-slate-500">
-              We aim to reply within one business day.
-            </p>
+            <dt className="font-form text-[11px] font-bold uppercase tracking-[0.16em] text-form">
+              1. From
+            </dt>
+            <dd className="blankline mt-2 pb-1 font-typed text-sm text-ink-soft">
+              Your name and organisation
+            </dd>
           </div>
           <div>
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-gold-600">
-              Registered office
-            </h2>
-            <p className="mt-2 text-lg font-semibold leading-snug text-navy-900">
-              {site.address}
-            </p>
+            <dt className="font-form text-[11px] font-bold uppercase tracking-[0.16em] text-form">
+              2. Line of business
+            </dt>
+            <dd className="blankline mt-2 pb-1 font-typed text-sm text-ink-soft">
+              {divisions.map((d) => `Line ${d.line}`).join(" / ")} — or state
+              “general”
+            </dd>
           </div>
           <div>
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-gold-600">
-              Company
-            </h2>
-            <p className="mt-2 text-lg font-semibold text-navy-900">
-              Guilders Limited
-            </p>
-            <p className="mt-1 text-sm text-slate-500">
-              {site.rcNumber} · Incorporated in Nigeria under CAMA 2020
-            </p>
+            <dt className="font-form text-[11px] font-bold uppercase tracking-[0.16em] text-form">
+              3. The work required
+            </dt>
+            <dd className="blankline mt-2 pb-1 font-typed text-sm text-ink-soft">
+              What you need, where, and by when
+            </dd>
           </div>
-        </div>
+        </dl>
       </section>
-    </>
+
+      <section className="mt-16">
+        <h2 className="font-form text-sm font-bold uppercase tracking-[0.1em] text-form">
+          Registered office
+        </h2>
+        <address className="mt-4 max-w-[70ch] font-typed text-sm not-italic leading-7 text-ink">
+          Guilders Limited · {site.rcNumber}
+          <br />
+          {site.address}
+          <br />
+          <a href={`mailto:${site.email}`} className="typedlink">
+            {site.email}
+          </a>{" "}
+          ·{" "}
+          <a
+            href={`tel:${site.phone.replace(/\s/g, "")}`}
+            className="typedlink"
+          >
+            {site.phone}
+          </a>
+        </address>
+      </section>
+    </FormSheet>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { FormSheet } from "@/components/sheet";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -82,51 +83,40 @@ const sections = [
     ],
   },
 ];
-
 export default function PrivacyPage() {
   return (
-    <>
-      <section className="bg-navy-950 text-white">
-        <div className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
-            Legal
-          </p>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight">
-            Privacy Policy
-          </h1>
-          <p className="mt-4 text-slate-300">Effective date: 1 September 2026</p>
-        </div>
+    <FormSheet
+      formNo="GL-05"
+      formTitle="Data Protection Notice"
+      tint="pink"
+      copyNote="Pink copy — data protection file"
+    >
+      <section className="pt-8">
+        <h1 className="max-w-[24ch] font-form text-3xl font-black uppercase tracking-[0.02em] text-ink sm:text-4xl">
+          Privacy Policy
+        </h1>
+        <p className="mt-3 font-typed text-sm text-ink-soft">
+          Last updated: 1 September 2026 · Nigeria Data Protection Act 2023
+        </p>
+        {sections.map((s) => (
+          <section key={s.heading} className="mt-12">
+            <h2 className="font-form text-sm font-bold uppercase tracking-[0.1em] text-form">
+              {s.heading}
+            </h2>
+            {s.body.map((p) => (
+              <p
+                key={p.slice(0, 40)}
+                className="mt-4 max-w-[70ch] font-typed text-sm leading-7 text-ink"
+              >
+                {p}
+              </p>
+            ))}
+          </section>
+        ))}
+        <p className="mt-12 max-w-[70ch] border-t border-ink/30 pt-6 font-typed text-sm leading-7 text-ink">
+          Questions about this notice: {site.email}.
+        </p>
       </section>
-
-      <section className="mx-auto max-w-3xl px-5 py-16 sm:px-8">
-        <div className="space-y-10">
-          {sections.map((s) => (
-            <div key={s.heading}>
-              <h2 className="text-xl font-bold tracking-tight text-navy-900">
-                {s.heading}
-              </h2>
-              {s.body.map((p) => (
-                <p key={p} className="mt-3 leading-relaxed text-slate-700">
-                  {p}
-                </p>
-              ))}
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-16 rounded-2xl bg-mist p-8">
-          <p className="text-sm text-slate-600">
-            Questions about this policy? Email{" "}
-            <a
-              href={`mailto:${site.email}`}
-              className="font-semibold text-gold-600 underline underline-offset-2"
-            >
-              {site.email}
-            </a>
-            .
-          </p>
-        </div>
-      </section>
-    </>
+    </FormSheet>
   );
 }

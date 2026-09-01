@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-01T19:00:00Z",
+  "title": "Design System: Guilders Limited",
+  "extensions": {
+    "colorMeta": {
+      "desk": { "role": "neutral", "displayName": "Desk", "canonical": "#e6dfca", "tonalRamp": ["#262218", "#4a4433", "#6e6650", "#918870", "#b3aa8f", "#d0c8ad", "#e6dfca", "#f5f1e3"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#faf7ec", "tonalRamp": ["#2a2718", "#4f4a33", "#746e50", "#989170", "#bcb48f", "#ddd5b3", "#f0ecd7", "#faf7ec"] },
+      "paper-2": { "role": "neutral", "displayName": "Paper 2", "canonical": "#f1ebd8", "tonalRamp": ["#282415", "#4c4630", "#70684c", "#948b6c", "#b8ae8c", "#d7cdb0", "#e8e0c8", "#f1ebd8"] },
+      "copy-pink": { "role": "neutral", "displayName": "Carbon Pink", "canonical": "#f7e9e6", "tonalRamp": ["#2b1a17", "#523431", "#79504c", "#9f6f6a", "#c4938d", "#e0b9b4", "#efd4d0", "#f7e9e6"] },
+      "copy-gold": { "role": "neutral", "displayName": "Carbon Gold", "canonical": "#f4ead0", "tonalRamp": ["#2a2310", "#4f4527", "#756741", "#9a8a5e", "#bfae7f", "#dcccA3", "#ebdcbc", "#f4ead0"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#221f16", "tonalRamp": ["#221f16", "#3b372a", "#575142", "#75705e", "#95907d", "#b5b09e", "#d5d1c2", "#f0eee6"] },
+      "ink-soft": { "role": "neutral", "displayName": "Ink Soft", "canonical": "#5a5648", "tonalRamp": ["#1c1a14", "#35322a", "#4a473c", "#5a5648", "#7d7968", "#a09c8b", "#c4c0b1", "#e6e4db"] },
+      "form-blue": { "role": "primary", "displayName": "Form Blue", "canonical": "#274690", "tonalRamp": ["#101c3a", "#1a2d5e", "#274690", "#3a5cad", "#5878c2", "#7f98d4", "#aabce4", "#d6e0f4"] },
+      "rule-blue": { "role": "neutral", "displayName": "Rule Blue", "canonical": "#b6bfd8", "tonalRamp": ["#232c42", "#3c496a", "#576791", "#7684ad", "#96a2c3", "#b6bfd8", "#d2d8e8", "#edf0f7"] },
+      "stamp-red": { "role": "secondary", "displayName": "Stamp Red", "canonical": "#b02e20", "tonalRamp": ["#3e0f0a", "#671a12", "#8c2419", "#b02e20", "#c85447", "#dc7f74", "#ecaba3", "#f8d6d1"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display (Typed)", "purpose": "Page titles and letterhead. The company typed its own headings." },
+      "headline": { "displayName": "Headline (Typed)", "purpose": "Section and line-item headings, uppercase, underlined." },
+      "body": { "displayName": "Body (Typed)", "purpose": "Typed entries; sits on the 2rem ledger ruling; max 70ch." },
+      "label": { "displayName": "Label (Printed)", "purpose": "Franklin printed-form labels in form-blue: LINE, STATUS, MEMO CLAUSE." },
+      "script": { "displayName": "Signature", "purpose": "The director's authorised signature only." }
+    },
+    "shadows": [
+      { "name": "sheet", "value": "0 1px 2px rgba(34,31,22,0.1), 0 12px 32px -12px rgba(34,31,22,0.28)", "purpose": "The one shadow: the paper sheet resting on the desk." }
+    ],
+    "motion": [
+      { "name": "stamp-in", "value": "0.34s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both", "purpose": "The stamp lands once: scale 1.55 to 1 at -8deg. Disabled under prefers-reduced-motion." },
+      { "name": "state", "value": "0.15s ease-out", "purpose": "Hover/active transitions on links and the stamp button." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Stamp Button",
+      "kind": "button",
+      "refersTo": "button-stamp",
+      "description": "The single CTA per page, drawn as a rubber stamp box.",
+      "html": "<a class=\"ds-stampbtn\" href=\"#\">Open an enquiry</a>",
+      "css": ".ds-stampbtn { display: inline-block; border: 2.5px solid #b02e20; border-radius: 6px; color: #b02e20; background: transparent; font-family: 'Libre Franklin', 'Franklin Gothic Medium', Arial, sans-serif; font-weight: 800; letter-spacing: 0.08em; padding: 0.8rem 1.6rem; transform: rotate(-0.75deg); text-decoration: none; transition: background-color 0.15s ease-out, color 0.15s ease-out, transform 0.15s ease-out; } .ds-stampbtn:hover { background: #b02e20; color: #faf7ec; } .ds-stampbtn:focus-visible { outline: 2px solid #274690; outline-offset: 2px; } .ds-stampbtn:active { transform: rotate(-0.75deg) translateY(1px); }"
+    },
+    {
+      "name": "Typed Link",
+      "kind": "custom",
+      "refersTo": "link-typed",
+      "description": "Secondary action: typed text underlined in form-blue.",
+      "html": "<a class=\"ds-typedlink\" href=\"#\">hello@guilders.ltd</a>",
+      "css": ".ds-typedlink { font-family: 'Courier Prime', 'Courier New', monospace; font-size: 0.875rem; color: #221f16; text-decoration: underline; text-decoration-color: #274690; text-decoration-thickness: 1.5px; text-underline-offset: 4px; transition: background-color 0.15s ease-out; } .ds-typedlink:hover { background: rgba(39,70,144,0.1); } .ds-typedlink:focus-visible { outline: 2px solid #274690; outline-offset: 2px; }"
+    },
+    {
+      "name": "Folder Tabs",
+      "kind": "nav",
+      "refersTo": "tab-active",
+      "description": "File-folder tab navigation; the active tab fuses into the sheet.",
+      "html": "<nav class=\"ds-tabs\"><a class=\"ds-tab ds-tab--active\" href=\"#\" aria-current=\"page\">Manifest <span>GL-01</span></a><a class=\"ds-tab\" href=\"#\">Company Record <span>GL-02</span></a><a class=\"ds-tab\" href=\"#\">Enquiries <span>GL-04</span></a></nav>",
+      "css": ".ds-tabs { display: flex; gap: 4px; align-items: flex-end; background: #e6dfca; padding: 12px 12px 0; } .ds-tab { font-family: 'Libre Franklin', Arial, sans-serif; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #5a5648; background: #f1ebd8; border: 1px solid rgba(34,31,22,0.28); border-bottom: none; padding: 10px 18px; text-decoration: none; } .ds-tab span { color: #7f98d4; } .ds-tab--active { background: #faf7ec; color: #221f16; } .ds-tab--active span { color: #274690; } .ds-tab:hover { background: #faf7ec; } .ds-tab:focus-visible { outline: 2px solid #274690; outline-offset: 2px; }"
+    },
+    {
+      "name": "Form Label",
+      "kind": "chip",
+      "refersTo": "label",
+      "description": "Printed-form label chrome in form-blue.",
+      "html": "<span class=\"ds-formlabel\">Description of business</span>",
+      "css": ".ds-formlabel { font-family: 'Libre Franklin', 'Franklin Gothic Medium', Arial, sans-serif; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #274690; }"
+    },
+    {
+      "name": "Registered Stamp",
+      "kind": "custom",
+      "refersTo": "button-stamp",
+      "description": "The signature element: a rotated red rubber stamp with uneven ink.",
+      "html": "<div class=\"ds-stamp\"><div class=\"ds-stamp-outer\"><div class=\"ds-stamp-inner\"><p class=\"ds-stamp-word\">Registered</p><p class=\"ds-stamp-line\">RC 9819868 · CAC Nigeria</p><p class=\"ds-stamp-line\">01 Sep 2026</p></div></div></div>",
+      "css": ".ds-stamp { display: inline-block; transform: rotate(-8deg); mix-blend-mode: multiply; opacity: 0.93; } .ds-stamp-outer { border: 3px solid #b02e20; border-radius: 8px; padding: 4px; } .ds-stamp-inner { border: 1px solid #b02e20; border-radius: 6px; padding: 8px 16px; text-align: center; } .ds-stamp-word { font-family: 'Libre Franklin', Arial, sans-serif; font-size: 1.25rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.18em; color: #b02e20; margin: 0; line-height: 1; } .ds-stamp-line { font-family: 'Libre Franklin', Arial, sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.22em; color: #b02e20; margin: 4px 0 0; }"
+    },
+    {
+      "name": "Ruled Paragraph",
+      "kind": "custom",
+      "refersTo": "body",
+      "description": "Typed body copy sitting on 2rem ledger ruling.",
+      "html": "<div class=\"ds-ruled\"><p>Being a true record of the lines of business registered and carried on by Guilders Limited, a private company limited by shares.</p></div>",
+      "css": ".ds-ruled { max-width: 70ch; background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(2rem - 1px), #b6bfd8 calc(2rem - 1px), #b6bfd8 2rem); } .ds-ruled p { font-family: 'Courier Prime', 'Courier New', monospace; font-size: 0.875rem; color: #221f16; line-height: 2rem; margin: 0; }"
+    },
+    {
+      "name": "Blank Field",
+      "kind": "input",
+      "refersTo": "body",
+      "description": "A blank form field the visitor would fill by hand.",
+      "html": "<div class=\"ds-blank\"><span class=\"ds-formlabel2\">1. From</span><p class=\"ds-blankline\">Your name and organisation</p></div>",
+      "css": ".ds-formlabel2 { font-family: 'Libre Franklin', Arial, sans-serif; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #274690; } .ds-blankline { border-bottom: 1px solid #5a5648; min-height: 2rem; font-family: 'Courier Prime', monospace; font-size: 0.875rem; color: #5a5648; margin: 4px 0 0; padding-bottom: 4px; max-width: 48ch; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Operations Manifest",
+    "overview": "The entire site is Guilders Limited's own stamped trade paperwork. Every page is a numbered form sheet (GL-01 through GL-06, GL-99 for errors) resting on a desk surface: letterhead at the top, printed-form chrome in blue, entries typed in Courier, a red rubber stamp for registration, and an authorised signature at the foot. A young Nigerian trading company earns trust by showing its papers, not by imitating fintech gradients — so nothing here is decoration; every element is something a real waybill, registry extract, or continuation sheet would carry.",
+    "keyCharacteristics": [
+      "Every page is a numbered paper form on a desk, never a \"web page\"",
+      "Two inks on paper: form-blue for printed chrome, typed ink for content; stamp-red is scarce",
+      "Real paper material: subtle grain on desk and sheets, broken ink on the stamp",
+      "File-folder tab navigation; legal pages are pink/gold carbon copies",
+      "All facts verifiable (RC number, dates, address); no invented claims"
+    ],
+    "rules": [
+      { "name": "The Two-Inks Rule", "body": "Content is typed in ink; chrome is printed in form-blue; stamp-red appears only as the REGISTERED stamp and the single stamp-box CTA per page. No other hues exist.", "section": "colors" },
+      { "name": "The Carbon-Copy Rule", "body": "Legal pages are not styled differently — they are the same form on pink or gold carbon paper.", "section": "colors" },
+      { "name": "The Ruling Rule", "body": "Ruled paragraphs sit exactly on the 2rem ledger ruling: line-height 2rem, no margins between ruled lines.", "section": "typography" },
+      { "name": "The One-Sheet Rule", "body": "Only the sheet casts a shadow. Elements on the paper are printed or stamped flat.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do render every new page as a numbered form sheet with letterhead, footer, and microprint — extend the GL-XX series.",
+      "Do keep body copy on the 2rem ruling at ≤70ch and labels in Franklin 700 / 0.18em tracking / form-blue.",
+      "Do apply the shared grain (--grain) to any new paper surface.",
+      "Do keep stamp-red scarce: one stamp and/or one CTA per page."
+    ],
+    "donts": [
+      "Don't add gradients, glass, icon cards, hero imagery, or drop shadows inside the paper.",
+      "Don't introduce new hues, rounded corners (beyond the stamp's 6px), or a second button style.",
+      "Don't invent claims, metrics, or testimonials — every fact must be verifiable against the company record.",
+      "Don't animate anything except the stamp landing."
+    ]
+  }
+}

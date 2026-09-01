@@ -1,128 +1,103 @@
 import type { Metadata } from "next";
-import { divisions, site } from "@/lib/site";
+import Link from "next/link";
+import { FormSheet } from "@/components/sheet";
+import { divisions } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "What we do",
+  title: "Lines of Business",
   description:
-    "Technology & digital solutions, transport & logistics, trade & commerce, assets & leasing, and ventures & investments — the five divisions of Guilders Limited.",
+    "The schedule of operations of Guilders Limited — technology, logistics, commerce, assets and ventures, line by line.",
 };
 
 export default function ServicesPage() {
   return (
-    <>
-      <section className="relative overflow-hidden bg-navy-950 text-white">
-        <div className="grain absolute inset-0" aria-hidden="true" />
-        <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
-            What we do
-          </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-            Five divisions. One standard.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-            Everything Guilders operates falls under one of five divisions —
-            each with a clear mandate, each accountable to the same measure of
-            quality.
-          </p>
-          <nav aria-label="Divisions" className="mt-10 flex flex-wrap gap-3">
+    <FormSheet formNo="GL-03" formTitle="Schedule of Operations">
+      <section className="pt-8">
+        <h1 className="max-w-[24ch] font-form text-3xl font-black uppercase tracking-[0.02em] text-ink sm:text-4xl">
+          Schedule of operations
+        </h1>
+        <p className="mt-4 max-w-[70ch] font-typed text-sm leading-7 text-ink">
+          Continuation sheets to Form GL-01. Each line of business is recorded
+          below with the work it covers and the services it offers.
+        </p>
+        <nav aria-label="Lines on this schedule" className="mt-8">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {divisions.map((d) => (
-              <a
-                key={d.slug}
-                href={`#${d.slug}`}
-                className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-gold-400/60 hover:text-white"
-              >
-                {d.name}
-              </a>
+              <li key={d.slug}>
+                <a
+                  href={`#${d.slug}`}
+                  className="typedlink font-typed text-xs uppercase"
+                >
+                  Line {d.line} — {d.name}
+                </a>
+              </li>
             ))}
-          </nav>
-        </div>
+          </ul>
+        </nav>
       </section>
 
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        {divisions.map((d, i) => (
-          <section
-            key={d.slug}
-            id={d.slug}
-            className={`scroll-mt-24 py-20 ${
-              i < divisions.length - 1 ? "border-b border-slate-200" : ""
-            }`}
-          >
-            <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
-              <div>
-                <span className="font-mono text-sm text-slate-400">
-                  Division 0{i + 1}
-                </span>
-                <h2 className="mt-2 text-3xl font-bold tracking-tight text-navy-900">
-                  {d.name}
-                </h2>
-                <p className="mt-2 text-base font-medium text-gold-600">
-                  {d.tagline}
-                </p>
-                <p className="mt-5 text-lg leading-relaxed text-slate-600">
-                  {d.summary}
-                </p>
-                <ul className="mt-6 space-y-3">
-                  {d.details.map((item) => (
-                    <li key={item} className="flex gap-3 text-sm text-slate-700">
-                      <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        aria-hidden="true"
-                        className="mt-0.5 shrink-0 text-gold-500"
-                      >
-                        <path
-                          d="M20 6 9 17l-5-5"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="grid content-start gap-5">
-                {d.offerings.map((o) => (
-                  <div
-                    key={o.title}
-                    className={`relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br ${d.accent} p-7`}
-                  >
-                    <h3 className="text-lg font-bold text-navy-900">
-                      {o.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                      {o.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
+      {divisions.map((d) => (
+        <section key={d.slug} id={d.slug} className="mt-20 scroll-mt-24">
+          <div className="border-y-2 border-ink py-3">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+              <h2 className="font-form text-lg font-black uppercase tracking-[0.04em] text-ink sm:text-xl">
+                Line {d.line} — {d.name}
+              </h2>
+              <p className="font-typed text-xs uppercase text-form">
+                Memo clause {d.clause}
+              </p>
             </div>
-          </section>
-        ))}
-      </div>
-
-      <section className="relative overflow-hidden bg-navy-950 text-white">
-        <div className="grain absolute inset-0" aria-hidden="true" />
-        <div className="relative mx-auto max-w-6xl px-5 py-20 text-center sm:px-8">
-          <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
-            Not sure which division you need?
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-slate-300">
-            Describe the job — we&apos;ll route it to the right team.
+          </div>
+          <p className="mt-5 max-w-[70ch] font-typed text-sm leading-7 text-ink">
+            {d.summary}
           </p>
-          <a
-            href={`mailto:${site.email}`}
-            className="mt-8 inline-block rounded-full bg-gold-500 px-7 py-3 text-sm font-semibold text-navy-950 transition-colors hover:bg-gold-400"
-          >
-            Email {site.email}
-          </a>
+
+          <h3 className="mt-8 font-form text-[11px] font-bold uppercase tracking-[0.16em] text-form">
+            Scope of work
+          </h3>
+          <ul className="mt-3 max-w-[70ch]">
+            {d.details.map((detail) => (
+              <li
+                key={detail.slice(0, 40)}
+                className="border-b border-rule py-2.5 font-typed text-sm leading-6 text-ink"
+              >
+                {detail}
+              </li>
+            ))}
+          </ul>
+
+          <h3 className="mt-8 font-form text-[11px] font-bold uppercase tracking-[0.16em] text-form">
+            Services on offer
+          </h3>
+          <dl className="mt-3 grid gap-px overflow-hidden border border-rule bg-rule sm:grid-cols-3">
+            {d.offerings.map((o) => (
+              <div key={o.title} className="bg-paper p-4">
+                <dt className="font-typed text-sm font-bold uppercase text-ink">
+                  {o.title}
+                </dt>
+                <dd className="mt-2 font-typed text-[13px] leading-6 text-ink-soft">
+                  {o.text}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ))}
+
+      <section className="mt-20">
+        <h2 className="font-form text-sm font-bold uppercase tracking-[0.1em] text-form">
+          To engage any line
+        </h2>
+        <div className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <p className="max-w-[52ch] font-typed text-sm leading-7 text-ink">
+            State the line number and the work required. We reply within two
+            working days.
+          </p>
+          <Link href="/contact/" className="stampbtn">
+            Open an enquiry
+          </Link>
         </div>
       </section>
-    </>
+    </FormSheet>
   );
 }
