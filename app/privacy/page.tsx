@@ -11,7 +11,7 @@ const sections = [
   {
     heading: "1. Who we are",
     body: [
-      `Guilders Limited (“Guilders”, “we”, “us”, “our”) is a private company limited by shares, incorporated in Nigeria (${"RC 9819868"}) with its registered office at ${"15 Ntonko Close, New Garage, Makurdi, Benue State, Nigeria"}. This Privacy Policy explains how we collect, use, share and protect personal information when you visit guilders.ltd, contact us, or do business with any Guilders division.`,
+      `Guilders Limited (“Guilders”, “we”, “us”, “our”) is a private company limited by shares, incorporated in Nigeria (${"RC 9819868"}) with its registered office at ${"Opposite Total Filling Station, New Garage, Makurdi, Benue State, Nigeria"}. This Privacy Policy explains how we collect, use, share and protect personal information when you visit guilders.ltd, contact us, or do business with any Guilders division.`,
       "We are committed to handling personal data in accordance with the Nigeria Data Protection Act 2023 (NDPA) and other applicable data protection laws.",
     ],
   },
@@ -78,7 +78,7 @@ const sections = [
   {
     heading: "11. Contact us",
     body: [
-      "For any privacy question or request, contact us at hello@guilders.ltd or write to Guilders Limited, 15 Ntonko Close, New Garage, Makurdi, Benue State, Nigeria.",
+      "For any privacy question or request, contact us at hello@guilders.ltd or write to Guilders Limited, Opposite Total Filling Station, New Garage, Makurdi, Benue State, Nigeria.",
     ],
   },
 ];

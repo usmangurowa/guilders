@@ -18,10 +18,10 @@ function Check() {
       aria-hidden="true"
       className="mt-0.5 shrink-0"
     >
-      <rect width="20" height="20" rx="10" fill="#DDEFE6" />
+      <rect width="20" height="20" rx="10" fill="var(--c-volt-tint)" />
       <path
         d="M6 10.2l2.6 2.6L14 7.4"
-        stroke="#0B6E43"
+        stroke="var(--c-volt)"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -103,7 +103,7 @@ export default function ServicesPage() {
                   key={o.title}
                   className={`rounded-2xl p-6 ${
                     i % 2 === 1
-                      ? "bg-white shadow-[0_1px_2px_rgb(10_31_24/0.05),0_10px_28px_-14px_rgb(10_31_24/0.12)]"
+                      ? "bg-paper shadow-[0_1px_2px_rgb(10_31_24/0.05),0_10px_28px_-14px_rgb(10_31_24/0.12)]"
                       : "border border-line"
                   }`}
                 >
@@ -124,7 +124,7 @@ export default function ServicesPage() {
           <h2 className="display-sub mx-auto max-w-xl text-white">
             Not sure which division you need?
           </h2>
-          <p className="mx-auto mt-4 max-w-lg leading-7 text-[#a9c4b8]">
+          <p className="mx-auto mt-4 max-w-lg leading-7 text-white/70">
             Describe the job — we&apos;ll route it to the right team and reply
             within one business day.
           </p>

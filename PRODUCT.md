@@ -28,9 +28,7 @@ lines of business — not a shell, not a brochure of stock claims.
 ## Product truth (verified — never invent beyond this)
 - Legal name: GUILDERS LIMITED. RC 9819868. TIN exists but is NOT published.
 - Incorporated 1 September 2026 under CAMA 2020. Status: Active.
-- Registered office: 15 Ntonko Close, New Garage, Makurdi, Benue State, Nigeria.
-- Share capital ₦1,000,000 (1,000,000 ordinary shares of ₦1).
-- Sole director/shareholder: Hassan Usman Gurowa.
+- Office address: Opposite Total Filling Station, New Garage, Makurdi, Benue State, Nigeria.
 - Contact: hello@guilders.ltd. Domain: guilders.ltd.
 - Five business objects (memorandum): ICT/programming/digital services;
   transport & logistics incl. fleet leasing, haulage, dispatch; general

@@ -1,21 +1,70 @@
 @import "tailwindcss";
 
-@theme {
-  --color-ink: #0a1f18;
-  --color-body: #4a5a52;
-  --color-soft: #66756d;
-  --color-green: #0b6e43;
-  --color-green-deep: #095c38;
-  --color-green-bright: #17b26a;
-  --color-mint: #eef6f1;
-  --color-mint-deep: #ddefe6;
-  --color-dark: #071b14;
-  --color-dark-2: #0b2f22;
-  --color-line: #e5ece8;
-  --color-line-dark: #1c3a2e;
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Guilders DS — tokens switch between light and dark via the .dark class. */
+:root {
+  --c-paper: #ffffff;
+  --c-wash: #f4f6fb;
+  --c-rule: #e4e7ee;
+  --c-body: #4b5263;
+  --c-soft: #5f6677;
+  --c-ink: #0a0d14;
+  --c-volt: #1f4bff;
+  --c-volt-deep: #1236c8;
+  --c-volt-tint: #e8edff;
+  --c-blueprint: #f3f6ff;
+  --c-grid: rgb(31 75 255 / 0.11);
+  --c-band: #05070d;
+  --c-band-rule: #1a2030;
+  color-scheme: light;
+}
+.dark {
+  --c-paper: #05070d;
+  --c-wash: #0d111b;
+  --c-rule: #1a2030;
+  --c-body: #a3aabb;
+  --c-soft: #8c93a6;
+  --c-ink: #f5f7fc;
+  --c-volt: #4d74ff;
+  --c-volt-deep: #7b97ff;
+  --c-volt-tint: #111b45;
+  --c-blueprint: #0a1030;
+  --c-grid: rgb(77 116 255 / 0.18);
+  --c-band: #0d111b;
+  --c-band-rule: #232a3d;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--c-paper);
+  --color-wash: var(--c-wash);
+  --color-rule: var(--c-rule);
+  --color-ink: var(--c-ink);
+  --color-body: var(--c-body);
+  --color-soft: var(--c-soft);
+  --color-volt: var(--c-volt);
+  --color-volt-deep: var(--c-volt-deep);
+  --color-volt-tint: var(--c-volt-tint);
+  --color-volt-solid: #1f4bff; /* filled surfaces with white text, both themes */
+  --color-blueprint: var(--c-blueprint);
+  --color-band: var(--c-band);
+
+  /* Legacy names, re-pointed so older pages follow the new system */
+  --color-green: var(--c-volt);
+  --color-green-deep: var(--c-volt-deep);
+  --color-green-bright: #4d74ff;
+  --color-mint: var(--c-wash);
+  --color-mint-deep: var(--c-volt-tint);
+  --color-dark: var(--c-band);
+  --color-dark-2: #111827;
+  --color-line: var(--c-rule);
+  --color-line-dark: var(--c-band-rule);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-inter-tight), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-brand: var(--font-comfortaa), ui-rounded, sans-serif;
 }
 
 html {
@@ -24,7 +73,7 @@ html {
 }
 
 body {
-  background: #fff;
+  background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
   font-feature-settings: "cv05", "cv11";
@@ -32,7 +81,7 @@ body {
 }
 
 ::selection {
-  background: var(--color-green-bright);
+  background: var(--color-volt-solid);
   color: #fff;
 }
 
@@ -78,15 +127,15 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 0.5rem;
-  background: var(--color-green);
+  border-radius: 999px;
+  background: var(--color-volt-solid);
   padding: 0.875rem 1.625rem;
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
   transition: background-color 160ms ease, transform 160ms ease;
   &:hover {
-    background: var(--color-green-deep);
+    background: #1236c8;
   }
   &:active {
     transform: translateY(1px);
@@ -98,16 +147,16 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 999px;
   border: 1px solid var(--color-line);
-  background: #fff;
+  background: var(--color-paper);
   padding: 0.875rem 1.625rem;
   font-size: 1rem;
   font-weight: 600;
   color: var(--color-ink);
   transition: border-color 160ms ease, background-color 160ms ease;
   &:hover {
-    border-color: #c9d6cf;
+    border-color: var(--color-volt);
     background: var(--color-mint);
   }
 }
@@ -117,15 +166,15 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 999px;
   background: #fff;
   padding: 0.875rem 1.625rem;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-dark);
+  color: #1236c8;
   transition: background-color 160ms ease;
   &:hover {
-    background: var(--color-mint-deep);
+    background: #e8edff;
   }
 }
 
@@ -144,7 +193,7 @@ body {
 
 /* Dotted route pattern behind hero visuals */
 @utility dot-grid {
-  background-image: radial-gradient(#c8ddd2 1.3px, transparent 1.3px);
+  background-image: radial-gradient(var(--c-grid) 1.3px, transparent 1.3px);
   background-size: 22px 22px;
 }
 
@@ -167,15 +216,46 @@ body {
 @utility card-ui {
   border-radius: 0.875rem;
   border: 1px solid var(--color-line);
-  background: #fff;
+  background: var(--color-paper);
   box-shadow:
-    0 1px 2px rgb(10 31 24 / 0.04),
-    0 12px 32px -12px rgb(10 31 24 / 0.16);
+    0 1px 2px rgb(10 13 20 / 0.04),
+    0 12px 32px -12px rgb(10 13 20 / 0.16);
+}
+
+/* Isometric blueprint grid — same 30° lattice the glyphs are drawn on */
+@utility blueprint {
+  background-color: var(--color-blueprint);
+  background-image:
+    linear-gradient(30deg, transparent calc(50% - 0.5px), var(--c-grid) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(150deg, transparent calc(50% - 0.5px), var(--c-grid) 50%, transparent calc(50% + 0.5px));
+  background-size: 56px 32.33px;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Glyphs: the one blue part lifts slightly when its card is hovered */
+.glyph-host .glyph {
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glyph-host:hover .glyph {
+  transform: translateY(-6px);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card-rise {
+  .card-rise,
+  .marquee {
     animation: none;
+  }
+  .glyph-host:hover .glyph {
+    transform: none;
   }
   html {
     scroll-behavior: auto;

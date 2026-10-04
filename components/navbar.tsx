@@ -4,9 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/logo";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const links = [
   { href: "/about/", label: "Company" },
+  { href: "/#divisions", label: "Divisions" },
   { href: "/services/", label: "What we do" },
   { href: "/contact/", label: "Contact" },
 ];
@@ -20,7 +22,7 @@ export function Navbar() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
       <nav
         className="container-site flex h-[72px] items-center justify-between"
         aria-label="Main"
@@ -36,7 +38,7 @@ export function Navbar() {
                 key={l.href}
                 href={l.href}
                 className={`text-[15px] font-medium transition-colors ${
-                  active ? "text-green" : "text-ink hover:text-green"
+                  active ? "text-ink" : "text-body hover:text-ink"
                 }`}
               >
                 {l.label}
@@ -45,18 +47,21 @@ export function Navbar() {
           })}
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle />
           <Link href="/contact/" className="btn-primary !px-5 !py-2.5 text-[15px]">
             Work with us
           </Link>
         </div>
 
+        <div className="flex items-center md:hidden">
+        <ThemeToggle />
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-nav"
-          className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-lg text-ink hover:bg-mint md:hidden"
+          className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-lg text-ink hover:bg-wash"
         >
           <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
           <svg
@@ -83,10 +88,11 @@ export function Navbar() {
             )}
           </svg>
         </button>
+        </div>
       </nav>
 
       {open && (
-        <div id="mobile-nav" className="border-t border-line bg-white md:hidden">
+        <div id="mobile-nav" className="border-t border-line bg-paper md:hidden">
           <div className="container-site flex flex-col gap-1 py-4">
             {links.map((l) => (
               <Link

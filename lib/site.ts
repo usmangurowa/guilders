@@ -3,9 +3,8 @@ export const site = {
   shortName: "Guilders",
   url: "https://guilders.ltd",
   email: "hello@guilders.ltd",
-  phone: "+234 813 922 3164",
   rcNumber: "RC 9819868",
-  address: "15 Ntonko Close, New Garage, Makurdi, Benue State, Nigeria",
+  address: "Opposite Total Filling Station, New Garage, Makurdi, Benue State, Nigeria",
   description:
     "Guilders Limited is a diversified Nigerian company building and operating businesses across technology, logistics, commerce, assets and ventures.",
   incorporated: "1 September 2026",
@@ -16,6 +15,10 @@ export type Division = {
   line: string;
   clause: string;
   name: string;
+  /** Short label for nav, footer and hero captions. */
+  short: string;
+  /** One-line homepage description (customer-facing). */
+  blurb: string;
   tagline: string;
   summary: string;
   details: string[];
@@ -25,6 +28,9 @@ export type Division = {
 export const divisions: Division[] = [
   {
     slug: "technology",
+    short: "Technology",
+    blurb:
+      "We design, build and look after the software and networks businesses depend on every day.",
     line: "01",
     clause: "3(a)",
     name: "Technology & Digital Solutions",
@@ -54,6 +60,9 @@ export const divisions: Division[] = [
   },
   {
     slug: "logistics",
+    short: "Logistics",
+    blurb:
+      "Trucks, drivers and routes that get your goods where they need to be — on time and accounted for.",
     line: "02",
     clause: "3(b)",
     name: "Transport & Logistics",
@@ -83,6 +92,9 @@ export const divisions: Division[] = [
   },
   {
     slug: "commerce",
+    short: "Trade",
+    blurb:
+      "We source goods in bulk and deliver on supply contracts, from purchase order to final receipt.",
     line: "03",
     clause: "3(c)",
     name: "Trade & Commerce",
@@ -112,6 +124,9 @@ export const divisions: Division[] = [
   },
   {
     slug: "assets",
+    short: "Assets",
+    blurb:
+      "We own vehicles, equipment and property, and lease them to businesses that need them working now.",
     line: "04",
     clause: "3(d)",
     name: "Assets & Leasing",
@@ -141,6 +156,9 @@ export const divisions: Division[] = [
   },
   {
     slug: "ventures",
+    short: "Ventures",
+    blurb:
+      "We put money and hands-on support behind founders building what Nigeria needs next.",
     line: "05",
     clause: "3(e)",
     name: "Ventures & Investments",
