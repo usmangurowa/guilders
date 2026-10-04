@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Guilders Limited — email hello@guilders.ltd or call +234 813 922 3164. Registered office: 15 Ntonko Close, New Garage, Makurdi, Benue State, Nigeria.",
+    "Contact Guilders Limited — email hello@guilders.ltd. Office: Opposite Total Filling Station, New Garage, Makurdi, Benue State, Nigeria.",
 };
 
 export default function ContactPage() {
@@ -20,12 +20,12 @@ export default function ContactPage() {
           message reaches every division. We reply within one business day.
         </p>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
           <a
             href={`mailto:${site.email}`}
             className="group rounded-2xl border border-line p-7 transition-colors hover:border-green"
           >
-            <p className="text-sm font-medium text-soft">Email — fastest</p>
+            <p className="text-sm font-medium text-soft">Email</p>
             <p className="mt-2 font-display text-xl font-semibold tracking-tight text-ink">
               {site.email}
             </p>
@@ -33,22 +33,10 @@ export default function ContactPage() {
               Write to us →
             </span>
           </a>
-          <a
-            href="tel:+2348139223164"
-            className="group rounded-2xl border border-line p-7 transition-colors hover:border-green"
-          >
-            <p className="text-sm font-medium text-soft">Phone &amp; WhatsApp</p>
-            <p className="mt-2 font-display text-xl font-semibold tracking-tight text-ink">
-              {site.phone}
-            </p>
-            <span className="mt-4 inline-block text-sm font-semibold text-green">
-              Call us →
-            </span>
-          </a>
           <div className="rounded-2xl border border-line p-7">
-            <p className="text-sm font-medium text-soft">Registered office</p>
+            <p className="text-sm font-medium text-soft">Office</p>
             <p className="mt-2 font-display text-xl font-semibold leading-snug tracking-tight text-ink">
-              15 Ntonko Close, New Garage
+              Opposite Total Filling Station, New Garage
             </p>
             <p className="mt-1 text-sm leading-6 text-body">
               Makurdi, Benue State, Nigeria
@@ -63,17 +51,17 @@ export default function ContactPage() {
             What to include in your message
           </h2>
           <ul className="mt-5 grid max-w-4xl gap-4 text-[15px] leading-6 text-body sm:grid-cols-3">
-            <li className="rounded-xl bg-white px-5 py-4">
+            <li className="rounded-xl bg-paper px-5 py-4">
               <span className="font-semibold text-ink">The job.</span> What you
               need done, in a sentence or two.
             </li>
-            <li className="rounded-xl bg-white px-5 py-4">
+            <li className="rounded-xl bg-paper px-5 py-4">
               <span className="font-semibold text-ink">The timeline.</span>{" "}
               When you need it — even a rough date helps.
             </li>
-            <li className="rounded-xl bg-white px-5 py-4">
+            <li className="rounded-xl bg-paper px-5 py-4">
               <span className="font-semibold text-ink">The best reply.</span>{" "}
-              Email or phone, and when to reach you.
+              How and when to reach you.
             </li>
           </ul>
           <p className="mt-6 text-sm text-soft">

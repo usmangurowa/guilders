@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Inter_Tight } from "next/font/google";
+import { Comfortaa, Geist_Mono, Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { site } from "@/lib/site";
+import { themeScript } from "@/components/theme-toggle";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,8 +17,23 @@ const interTight = Inter_Tight({
   weight: ["500", "600", "700"],
 });
 
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+// Wordmark only.
+const comfortaa = Comfortaa({
+  variable: "--font-comfortaa",
+  subsets: ["latin"],
+  weight: ["700"],
+});
+
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#05070d" },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -56,13 +72,10 @@ export const metadata: Metadata = {
 };
 
 /*
-DESIGN CONTRACT — The Platform Standard
-BRIEF (pinned): present Guilders the way Africa's most trusted platforms
-present themselves — Paystack, Mono, Flutterwave. Studied 2026-09-01.
-WORLD: white canvas, huge tight grotesque headlines, one confident green,
-alternating division sections with bespoke operational UI cards, honest
-registration facts as the proof strip, dark closing band, deep footer.
-NEVER: invented metrics, fake customer logos, fabricated product claims.
+DESIGN CONTRACT — Guilders DS (Paper file "Guilders — Design System")
+One ink, one electric blue (Volt), isometric hairline glyphs per division.
+Light and dark themes via the .dark class on <html>; tokens live in globals.css.
+NEVER: invented metrics, fake customer logos, registry numbers on marketing pages.
 */
 export default function RootLayout({
   children,
@@ -70,11 +83,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${interTight.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className={`${inter.variable} ${interTight.variable} ${geistMono.variable} ${comfortaa.variable} antialiased`}>
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-volt-solid focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
         >
           Skip to content
         </a>

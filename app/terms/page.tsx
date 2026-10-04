@@ -11,7 +11,7 @@ const sections = [
   {
     heading: "1. About these terms",
     body: [
-      "These Terms of Service (“Terms”) govern your use of the website guilders.ltd (the “Site”) operated by Guilders Limited (RC 9819868), a private company limited by shares incorporated in Nigeria with its registered office at 15 Ntonko Close, New Garage, Makurdi, Benue State, Nigeria (“Guilders”, “we”, “us”, “our”).",
+      "These Terms of Service (“Terms”) govern your use of the website guilders.ltd (the “Site”) operated by Guilders Limited (RC 9819868), a private company limited by shares incorporated in Nigeria with its registered office at Opposite Total Filling Station, New Garage, Makurdi, Benue State, Nigeria (“Guilders”, “we”, “us”, “our”).",
       "By accessing or using the Site you agree to these Terms. If you do not agree, please do not use the Site.",
     ],
   },
@@ -79,7 +79,7 @@ const sections = [
   {
     heading: "12. Contact",
     body: [
-      "Questions about these Terms should be sent to hello@guilders.ltd or by post to Guilders Limited, 15 Ntonko Close, New Garage, Makurdi, Benue State, Nigeria.",
+      "Questions about these Terms should be sent to hello@guilders.ltd or by post to Guilders Limited, Opposite Total Filling Station, New Garage, Makurdi, Benue State, Nigeria.",
     ],
   },
 ];

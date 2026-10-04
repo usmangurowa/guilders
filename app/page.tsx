@@ -1,424 +1,244 @@
 import Link from "next/link";
-import { site, divisions } from "@/lib/site";
+import { divisions, site, type Division } from "@/lib/site";
+import { Glyph, type GlyphName } from "@/components/glyph";
 
-function Check() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-      className="mt-0.5 shrink-0"
-    >
-      <rect width="20" height="20" rx="10" fill="#DDEFE6" />
-      <path
-        d="M6 10.2l2.6 2.6L14 7.4"
-        stroke="#0B6E43"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
+const ticker = [
+  "Software",
+  "Haulage",
+  "General supply",
+  "Fleet leasing",
+  "Property",
+  "Ventures",
+  "Last-mile delivery",
+];
+
+const principles = [
+  {
+    title: "Clear from day one",
+    text: "You get the scope, price and timeline in writing before we start. No surprises halfway through.",
+  },
+  {
+    title: "One person accountable",
+    text: "Every job has a named lead at Guilders you can reach directly until the work is done.",
+  },
+  {
+    title: "Here for the long run",
+    text: "We reinvest what we earn into assets and people, so we're still here when you need us next year.",
+  },
+];
+
+const eyebrow = "font-mono text-xs font-medium uppercase tracking-[0.08em] text-volt";
+
+function division(slug: GlyphName): Division {
+  const d = divisions.find((x) => x.slug === slug);
+  if (!d) throw new Error(`Unknown division: ${slug}`);
+  return d;
 }
 
-function Arrow() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <path
-        d="M3 8h10m0 0L9 4m4 4l-4 4"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+export default function Home() {
+  const tech = division("technology");
+  const logistics = division("logistics");
+  const rest = (["commerce", "assets", "ventures"] as const).map(division);
 
-function HeroOpsCard() {
-  return (
-    <div className="card-ui p-5">
-      <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-ink">Operations today</p>
-        <span className="rounded-full bg-mint-deep px-2.5 py-1 text-xs font-semibold text-green">
-          All divisions
-        </span>
-      </div>
-      <ul className="mt-4 divide-y divide-line text-sm">
-        {[
-          ["Consignment GL-2841 delivered", "Logistics"],
-          ["Client portal deployed to production", "Technology"],
-          ["Supply order #SO-1174 fulfilled", "Commerce"],
-          ["Lease renewed — flatbed truck", "Assets"],
-        ].map(([event, division]) => (
-          <li key={event} className="flex items-start justify-between gap-4 py-2.5">
-            <span className="flex gap-2.5 text-body">
-              <Check />
-              {event}
-            </span>
-            <span className="shrink-0 pt-0.5 text-xs font-medium text-soft">
-              {division}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function HeroReceiptCard() {
-  return (
-    <div className="card-ui p-5">
-      <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-ink">Invoice · INV-0107</p>
-        <span className="rounded-full bg-mint-deep px-2.5 py-1 text-xs font-semibold text-green">
-          Paid
-        </span>
-      </div>
-      <dl className="mt-4 space-y-2.5 text-sm">
-        <div className="flex justify-between">
-          <dt className="text-soft">Contract haulage · March</dt>
-          <dd className="font-medium text-ink">Settled</dd>
-        </div>
-        <div className="flex justify-between">
-          <dt className="text-soft">Payment terms</dt>
-          <dd className="font-medium text-ink">Net 14 — met</dd>
-        </div>
-      </dl>
-      <div className="mt-4 rounded-lg bg-mint px-4 py-3 text-sm text-body">
-        Receipt issued · Records filed with accounts
-      </div>
-    </div>
-  );
-}
-
-/* ---------- Bespoke division visuals (illustrative, not product claims) ---------- */
-
-function TechVisual() {
-  return (
-    <div className="card-ui overflow-hidden">
-      <div className="flex items-center gap-1.5 border-b border-line bg-mint px-4 py-3">
-        <span className="h-2.5 w-2.5 rounded-full bg-[#f2b8b5]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#f4d9a6]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#b9e2cd]" />
-        <span className="ml-3 text-xs font-medium text-soft">deploy.guilders.dev</span>
-      </div>
-      <pre className="overflow-x-auto px-5 py-4 font-mono text-[13px] leading-6 text-body">
-        <code>{`$ guilders deploy --env production
-
-  ✓ Build completed in 42s
-  ✓ 128 routes compiled
-  ✓ Deployed to Lagos edge
-
-  Live → client.example.ng`}</code>
-      </pre>
-    </div>
-  );
-}
-
-function LogisticsVisual() {
-  return (
-    <div className="card-ui p-5">
-      <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-ink">Consignment GL-2841</p>
-        <span className="rounded-full bg-mint-deep px-2.5 py-1 text-xs font-semibold text-green">
-          In transit
-        </span>
-      </div>
-      <div className="mt-5 flex items-center gap-2" aria-hidden="true">
-        <span className="h-3 w-3 rounded-full bg-green" />
-        <span className="h-px flex-1 bg-green" />
-        <span className="h-3 w-3 rounded-full bg-green" />
-        <span className="h-px flex-1 border-t border-dashed border-[#b7cec2]" />
-        <span className="h-3 w-3 rounded-full border-2 border-[#b7cec2] bg-white" />
-      </div>
-      <div className="mt-2 flex justify-between text-xs font-medium text-soft">
-        <span>Makurdi</span>
-        <span>Lokoja</span>
-        <span>Abuja</span>
-      </div>
-      <div className="mt-5 rounded-lg bg-mint px-4 py-3 text-sm text-body">
-        Driver dispatched · 14 packages · Signature on delivery
-      </div>
-    </div>
-  );
-}
-
-function CommerceVisual() {
-  return (
-    <div className="card-ui p-5">
-      <p className="text-sm font-semibold text-ink">Supply order · #SO-1174</p>
-      <ul className="mt-4 divide-y divide-line text-sm">
-        {[
-          ["Office workstations", "×40"],
-          ["Network equipment", "×12"],
-          ["Generator, 60 kVA", "×2"],
-        ].map(([item, qty]) => (
-          <li key={item} className="flex items-center justify-between py-2.5">
-            <span className="text-body">{item}</span>
-            <span className="font-medium text-ink">{qty}</span>
-          </li>
-        ))}
-      </ul>
-      <div className="mt-4 flex items-center justify-between rounded-lg bg-mint px-4 py-3">
-        <span className="text-sm font-medium text-body">Status</span>
-        <span className="text-sm font-semibold text-green">Delivered ✓</span>
-      </div>
-    </div>
-  );
-}
-
-function AssetsVisual() {
-  return (
-    <div className="card-ui p-5">
-      <p className="text-sm font-semibold text-ink">Lease schedule</p>
-      <ul className="mt-4 space-y-3 text-sm">
-        {[
-          ["Toyota Hiace — 14 seats", "Leased · 12 mo"],
-          ["Flatbed truck — 20 t", "Leased · 24 mo"],
-          ["Warehouse, North Bank", "Available"],
-        ].map(([asset, status]) => (
-          <li
-            key={asset}
-            className="flex items-center justify-between rounded-lg border border-line px-4 py-3"
-          >
-            <span className="text-body">{asset}</span>
-            <span
-              className={`text-xs font-semibold ${
-                status === "Available" ? "text-green" : "text-soft"
-              }`}
-            >
-              {status}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function VenturesVisual() {
-  return (
-    <div className="card-ui p-5">
-      <p className="text-sm font-semibold text-ink">Portfolio view</p>
-      <ul className="mt-4 space-y-3 text-sm">
-        {[
-          ["Logistics platform", "Incubating"],
-          ["Agri-trade venture", "Seed"],
-          ["Connectivity co.", "Operating"],
-        ].map(([name, stage]) => (
-          <li key={name} className="flex items-center justify-between">
-            <span className="text-body">{name}</span>
-            <span className="rounded-full bg-mint-deep px-2.5 py-1 text-xs font-semibold text-green">
-              {stage}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-4 border-t border-line pt-3 text-xs leading-5 text-soft">
-        Illustrative of how we structure and grow ventures under the Guilders
-        umbrella.
-      </p>
-    </div>
-  );
-}
-
-const visuals: Record<string, () => React.ReactElement> = {
-  technology: TechVisual,
-  logistics: LogisticsVisual,
-  commerce: CommerceVisual,
-  assets: AssetsVisual,
-  ventures: VenturesVisual,
-};
-
-const shortNames: Record<string, string> = {
-  technology: "Technology",
-  logistics: "Logistics",
-  commerce: "Commerce",
-  assets: "Assets",
-  ventures: "Ventures",
-};
-
-/* ---------- Page ---------- */
-
-export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="container-site grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[1.05fr_1fr] lg:py-28">
-          <div>
-            <h1 className="display-hero text-ink">
-              Building the businesses that keep Nigeria moving
+      <section className="container-site pt-16 sm:pt-24">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-[52rem]">
+            <p className={eyebrow}>A Nigerian group of companies</p>
+            <h1 className="mt-6 font-display text-[clamp(2.75rem,6.2vw,5.5rem)] font-semibold leading-[1] tracking-[-0.04em] text-balance text-ink">
+              We build and run the businesses Nigeria runs on.
             </h1>
-            <p className="mt-6 max-w-[52ch] text-lg leading-8 text-body sm:text-xl sm:leading-9">
-              Guilders Limited is a diversified Nigerian company operating
-              across technology, logistics, commerce, assets and ventures —
-              one group, built to deliver.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <Link href="/contact/" className="btn-primary">
-                Work with us
-              </Link>
-              <Link href="/services/" className="btn-secondary">
-                Explore our divisions
-              </Link>
-            </div>
           </div>
-
-          <div className="relative" aria-hidden="true">
-            <div className="dot-grid absolute -inset-6 rounded-3xl sm:-inset-10" />
-            <div className="relative space-y-5">
-              <div className="card-rise max-w-md" style={{ animationDelay: "80ms" }}>
-                <HeroOpsCard />
-              </div>
-              <div
-                className="card-rise ml-auto max-w-md"
-                style={{ animationDelay: "220ms" }}
-              >
-                <HeroReceiptCard />
-              </div>
+          <div className="max-w-sm lg:pb-2">
+            <p className="text-lg leading-7 text-body">
+              Technology, logistics, trade, property and investment under one roof — so you deal
+              with one company that answers for the whole job.
+            </p>
+            <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
+              <Link href="/contact/" className="btn-primary">
+                Start a project
+              </Link>
+              <Link href="#divisions" className="font-medium text-ink hover:text-volt">
+                See what we do →
+              </Link>
             </div>
           </div>
         </div>
+
+        {/* Glyph skyline on the blueprint grid */}
+        <div className="blueprint mt-14 overflow-hidden rounded-xl px-6 pt-12 pb-6 sm:mt-18 sm:px-10">
+          <ul className="grid grid-cols-3 gap-y-6 sm:grid-cols-5">
+            {divisions.map((d) => (
+              <li key={d.slug} className="flex flex-col items-center">
+                <Link href={`/services/#${d.slug}`} className="glyph-host flex flex-col items-center">
+                  <Glyph name={d.slug as GlyphName} className="h-28 w-28 sm:h-40 sm:w-40 lg:h-48 lg:w-48" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-2 hidden h-px bg-volt sm:block" />
+          <ul className="mt-4 hidden grid-cols-5 font-mono text-xs uppercase tracking-[0.08em] text-volt-deep sm:grid">
+            {divisions.map((d) => (
+              <li key={d.slug} className="text-center">
+                {d.short}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
-      {/* Facts strip */}
-      <section className="border-y border-line bg-mint">
-        <div className="container-site py-10">
-          <p className="text-center text-sm font-medium text-soft">
-            Incorporated and governed under the Companies and Allied Matters
-            Act 2020
-          </p>
-          <dl className="mx-auto mt-6 grid max-w-4xl grid-cols-2 gap-x-6 gap-y-8 text-center sm:grid-cols-4">
-            {[
-              ["RC 9819868", "CAC registration"],
-              ["2026", "Incorporated"],
-              ["Makurdi", "Headquarters"],
-              ["Five", "Lines of business"],
-            ].map(([value, label]) => (
-              <div key={label}>
-                <dt className="order-2 mt-1 block text-sm text-soft">{label}</dt>
-                <dd className="font-display text-2xl font-semibold tracking-tight text-ink sm:text-[1.75rem]">
-                  {value}
-                </dd>
-              </div>
-            ))}
-          </dl>
+      {/* Ticker */}
+      <section aria-label="What we do, in short" className="mt-24 overflow-hidden bg-volt-solid py-6">
+        <div className="marquee flex w-max">
+          {[0, 1].map((copy) => (
+            <ul
+              key={copy}
+              aria-hidden={copy === 1}
+              className="flex shrink-0 items-center gap-10 pr-10 font-display text-3xl font-semibold tracking-[-0.025em] whitespace-nowrap text-white sm:text-4xl"
+            >
+              {ticker.map((t) => (
+                <li key={t} className="flex items-center gap-10">
+                  {t}
+                  <span className="h-3 w-3 rotate-45 bg-white/45" aria-hidden="true" />
+                </li>
+              ))}
+            </ul>
+          ))}
         </div>
       </section>
 
       {/* Divisions */}
-      <section className="container-site py-20 sm:py-28">
-        <div className="max-w-3xl">
-          <h2 className="display-section text-ink">
-            Five divisions. One standard of delivery.
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-body">
-            Every Guilders division is run with the same discipline: clear
-            scope, honest pricing and work that holds up. Here is what each
-            one does.
+      <section id="divisions" className="container-site py-28 sm:py-36">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className={eyebrow}>What we do</p>
+            <h2 className="mt-5 max-w-xl font-display text-[clamp(2.25rem,4.4vw,4rem)] font-semibold leading-[1.03] tracking-[-0.035em] text-ink">
+              Five businesses. One way of working.
+            </h2>
+          </div>
+          <p className="max-w-sm leading-7 text-body">
+            Each division runs on its own, but all of them keep the same promise: agree the scope
+            first, price it honestly, deliver what we said.
           </p>
         </div>
 
-        <div className="mt-4 divide-y divide-line">
-          {divisions.map((d, i) => {
-            const Visual = visuals[d.slug];
-            const flip = i % 2 === 1;
+        <div className="mt-14 grid gap-4 lg:grid-cols-3">
+          {/* Featured: Technology */}
+          <Link
+            href={`/services/#${tech.slug}`}
+            className="glyph-host blueprint group flex flex-col justify-between gap-8 rounded-xl p-8 sm:flex-row sm:p-10 lg:col-span-2"
+            style={{ ["--glyph-face" as string]: "var(--c-blueprint)" }}
+          >
+            <div className="flex max-w-sm flex-col justify-between gap-8">
+              <div>
+                <p className={eyebrow}>Featured</p>
+                <h3 className="mt-4 font-display text-4xl font-semibold tracking-[-0.03em] text-ink">
+                  {tech.name.replace(" Solutions", "")}
+                </h3>
+                <p className="mt-4 leading-7 text-body">{tech.blurb}</p>
+              </div>
+              <ul className="flex flex-wrap gap-2">
+                {["Custom software", "ICT consultancy", "Internet access", "Automation"].map((t) => (
+                  <li key={t} className="rounded-full border border-rule bg-paper px-3 py-1.5 text-[13px] text-ink">
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <Glyph name="technology" className="h-56 w-56 self-center sm:h-72 sm:w-72" />
+          </Link>
+
+          {/* Logistics: always a dark card (lifts to the wash surface in dark mode) */}
+          <Link
+            href={`/services/#${logistics.slug}`}
+            className="glyph-host flex flex-col justify-between gap-6 rounded-xl bg-[#05070d] p-8 [--glyph-face:#05070d] sm:p-10 dark:bg-wash dark:[--glyph-face:var(--c-wash)]"
+          >
+            <div>
+              <h3 className="font-display text-[28px] leading-tight font-semibold tracking-[-0.025em] text-[#f5f7fc]">
+                {logistics.name}
+              </h3>
+              <p className="mt-3 text-[15px] leading-6 text-[#a3aabb]">{logistics.blurb}</p>
+            </div>
+            <div className="flex justify-center [--c-ink:#f5f7fc] [--c-volt:#4d74ff]">
+              <Glyph name="logistics" className="h-48 w-48" />
+            </div>
+          </Link>
+
+          {rest.map((d) => {
+            const ventures = d.slug === "ventures";
             return (
-              <article
+              <Link
                 key={d.slug}
-                className="grid items-center gap-10 py-14 sm:py-16 lg:grid-cols-2 lg:gap-20"
+                href={ventures ? "/contact/" : `/services/#${d.slug}`}
+                className={`glyph-host flex flex-col gap-6 rounded-xl p-8 ${ventures ? "bg-volt-tint" : "bg-wash"}`}
+                style={{ ["--glyph-face" as string]: ventures ? "var(--c-volt-tint)" : "var(--c-wash)" }}
               >
-                <div className={flip ? "lg:order-2" : undefined}>
-                  <p className="text-sm font-semibold text-green">
-                    {shortNames[d.slug]}
-                  </p>
-                  <h3 className="display-sub mt-3 text-ink">{d.name}</h3>
-                  <p className="mt-4 max-w-[56ch] leading-7 text-body">
-                    {d.summary}
-                  </p>
-                  <ul className="mt-6 space-y-3">
-                    {d.details.slice(0, 3).map((item) => (
-                      <li key={item} className="flex gap-3 text-[15px] leading-6 text-body">
-                        <Check />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href={`/services/#${d.slug}`}
-                    className="link-arrow mt-7 text-[15px]"
-                  >
-                    More about {shortNames[d.slug].toLowerCase()}
-                    <Arrow />
-                  </Link>
+                <Glyph name={d.slug as GlyphName} className="h-44 w-44 self-center" />
+                <div>
+                  <h3 className="font-display text-2xl font-semibold tracking-[-0.02em] text-ink">{d.name}</h3>
+                  <p className="mt-2.5 text-[15px] leading-6 text-body">{d.blurb}</p>
                 </div>
-                <div className={`mx-auto w-full max-w-md ${flip ? "lg:order-1" : ""}`}>
-                  <Visual />
-                </div>
-              </article>
+                <span className="mt-auto text-sm font-medium text-volt">
+                  {ventures ? "Pitch your business →" : "Learn more →"}
+                </span>
+              </Link>
             );
           })}
         </div>
       </section>
 
-      {/* How we operate */}
-      <section className="bg-mint">
-        <div className="container-site py-20 sm:py-24">
-          <h2 className="display-section max-w-2xl text-ink">
-            How we operate
-          </h2>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {[
-              {
-                title: "Registered and governed",
-                text: "A private company limited by shares, incorporated under CAMA 2020 and entered in the CAC register as RC 9819868. Contracts, invoices and accountability come standard.",
-              },
-              {
-                title: "One group, shared standards",
-                text: "Each division draws on the others — our fleet moves what we trade, our engineers build what we operate. You deal with one accountable partner.",
-              },
-              {
-                title: "Built for the long term",
-                text: "We hold assets, keep our word and grow deliberately. Guilders is structured to still be delivering for its clients decades from now.",
-              },
-            ].map((p) => (
-              <div key={p.title} className="rounded-2xl bg-white p-8 shadow-[0_1px_2px_rgb(10_31_24/0.05),0_10px_28px_-14px_rgb(10_31_24/0.12)]">
-                <h3 className="font-display text-xl font-semibold tracking-tight text-ink">
-                  {p.title}
-                </h3>
-                <p className="mt-3 leading-7 text-body">{p.text}</p>
-              </div>
-            ))}
+      {/* How we work */}
+      <section className="bg-band text-[#f5f7fc]">
+        <div className="container-site grid gap-12 py-24 sm:py-32 lg:grid-cols-[22rem_1fr] lg:gap-24">
+          <div>
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-[#4d74ff]">How we work</p>
+            <h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.75rem)] font-semibold leading-[1.08] tracking-[-0.03em]">
+              Big enough to deliver. Close enough to call.
+            </h2>
           </div>
+          <ul className="border-t border-[#4d74ff]">
+            {principles.map((p) => (
+              <li
+                key={p.title}
+                className="grid gap-2 border-b border-white/10 py-7 sm:grid-cols-[14rem_1fr] sm:gap-8"
+              >
+                <h3 className="font-display text-lg font-semibold tracking-[-0.015em]">{p.title}</h3>
+                <p className="leading-7 text-[#a3aabb]">{p.text}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* CTA band */}
-      <section className="bg-dark">
-        <div className="container-site py-20 text-center sm:py-24">
-          <h2 className="display-section mx-auto max-w-2xl text-white">
-            Start working with Guilders today
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-[#a9c4b8]">
-            Tell us what you need — software, haulage, supply, leasing or a
-            venture worth backing — and we will come back to you within one
-            business day.
-          </p>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/contact/" className="btn-on-dark">
-              Contact us
-            </Link>
-            <a
-              href={`mailto:${site.email}`}
-              className="inline-flex items-center gap-2 rounded-lg border border-line-dark px-6 py-3.5 font-semibold text-white transition-colors hover:bg-dark-2"
-            >
-              {site.email}
-            </a>
+      {/* Call to action */}
+      <section className="container-site pt-24 sm:pt-32">
+        <div className="flex flex-col items-start justify-between gap-10 overflow-hidden rounded-xl bg-volt-solid p-10 sm:p-16 lg:flex-row lg:items-center">
+          <div className="max-w-2xl">
+            <h2 className="font-display text-[clamp(2.25rem,4.4vw,4rem)] font-semibold leading-[1.03] tracking-[-0.035em] text-white">
+              Have something that needs doing?
+            </h2>
+            <p className="mt-5 text-lg leading-7 text-white/80">
+              Software, haulage, supplies, leasing or a business worth backing — tell us what you
+              need. We&apos;ll reply within one working day.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/contact/" className="btn-on-dark">
+                Talk to us
+              </Link>
+              <a
+                href={`mailto:${site.email}`}
+                className="inline-flex items-center rounded-full border border-white/50 px-6 py-3.5 font-semibold text-white transition-colors hover:bg-white/10"
+              >
+                {site.email}
+              </a>
+            </div>
           </div>
+          <svg viewBox="0 0 160 160" fill="none" className="hidden h-64 w-64 shrink-0 lg:block" aria-hidden="true">
+            <path d="M80 34 L119 56.5 L80 79 L41 56.5 Z" fill="#fff" stroke="#fff" strokeWidth="2" strokeLinejoin="round" />
+            <path d="M41 56.5 V101.5 L80 124 L119 101.5 V56.5 M80 79 V124" stroke="#fff" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+          </svg>
         </div>
       </section>
     </>
